@@ -8,7 +8,7 @@ Use this repository only:
 
 `dtfgenetics/Weedopolis-strain-Edition`
 
-Do not use the older Potopoly repository for production work. All future board maps, assets, rules, card decks, print files, and digital game files belong here.
+The older Potopoly repository has been deleted and is not part of production. All future board maps, assets, rules, card decks, print files, and digital game files belong here.
 
 ## Purpose
 
