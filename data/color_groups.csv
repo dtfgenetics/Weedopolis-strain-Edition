@@ -1,0 +1,11 @@
+color_group,display_name,space_numbers,properties,property_count,price_range_bud_bucks,upgrade_cost_bud_bucks,visual_notes
+brown,Brown Set,"1,3","Acapulco Gold; Maui Wowie",2,60,50,Early low-cost set; earthy brown bar
+light_blue,Light Blue Set,"6,8,9","Northern Lights; Jack Herer; Durban Poison",3,100-120,50,Cool sky/blue bar
+pink,Pink Set,"11,13,14","White Widow; Blueberry; Granddaddy Purple",3,140-160,100,Pink/purple transition set
+orange,Orange Set,"17,18,19","Green Crack; Pineapple Express; Blue Dream",3,180-200,100,Orange mid-game set
+red,Red Set,"21,23,24","GSC; Cookies & Cream; Gelato",3,220-240,150,Red dessert/cookies set
+yellow,Yellow Set,"26,27,29","Wedding Cake; Runtz; Zkittlez",3,260-280,150,Yellow candy/cake set
+green,Green Set,"31,32,34","Chemdawg; Sour Diesel; GG4",3,300-320,200,Green gas/chem set
+dark_blue,Dark Blue Set,"37,39","OG Kush; Permanent Marker",2,350-400,200,Premium final set
+category,Category Spaces,"5,15,25,35","Indica; Sativa; Hybrid; Autoflower",4,200,0,Railroad-style replacement spaces
+utility,Utility Spaces,"12,28","Grow Lights; Water Works",2,150,0,Utility-style spaces
