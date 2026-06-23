@@ -51,7 +51,7 @@ The blank board base should contain:
 - Center safe zones
 - No strain names
 - No prices
-- No final icons
+- No final icons/images
 - No final card text
 
 The blank board can include placeholder labels only in development versions, not final print base exports.
@@ -65,16 +65,22 @@ Four row templates must exist before any final board spaces are mass-produced:
 3. Top row template — faces top edge
 4. Right row template — faces right edge
 
-## Property tile layout
+## Locked property tile layout
 
-Every property tile uses this hierarchy:
+Every property tile uses this exact hierarchy:
 
 1. Color bar
-2. Strain name
-3. Icon/image
-4. Bold price line
+2. Strain title
+3. Main image/icon
+4. Bottom bold price line
 
-This hierarchy rotates with the side orientation.
+In plain terms:
+
+**Color → Title → Image → Bottom Price**
+
+The image/icon always sits between the title and the bottom price. The price never sits above the image.
+
+This hierarchy rotates with the side orientation. Rotate the whole tile as one unit; do not rearrange the internal order.
 
 ## Card-space layout
 
@@ -86,10 +92,10 @@ Every card draw space uses this hierarchy:
 
 ## Category/utility/tax layout
 
-Category and utility spaces use the same hierarchy as properties but without color-set rent context:
+Category and utility spaces use a similar clear hierarchy:
 
 1. Space name
-2. Icon
+2. Icon/image
 3. Price or fee instruction
 4. BUD BUCKS line where needed
 
@@ -127,15 +133,17 @@ The blank board base fails if:
 - The corner sizes are inconsistent
 - A side has the wrong number of spaces
 - The center area crowds the perimeter track
-- It includes final names or icons too early
+- It includes final names or icons/images too early
 - It cannot be exported as SVG/PDF/PNG
 
 A row template fails if:
 
 - The text faces the wrong edge
+- The property order is not Color → Title → Image → Bottom Price
+- The price is not at the bottom of the tile
 - The price is not readable
 - The color bar is not in the correct position
-- The icon competes with the name or price
+- The icon/image competes with the title or price
 - The template cannot be reused for multiple spaces
 
 ## Next phase trigger
