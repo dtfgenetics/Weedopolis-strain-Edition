@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1600" viewBox="0 0 1600 1600">
+  <title>Phase 02 Orientation Proof Panel</title>
+  <defs>
+    <style>
+      .bg{fill:#f4ead1}.center{fill:#fff8e5;stroke:#173f2c;stroke-width:10}.label{font-family:Arial,sans-serif;font-size:34px;font-weight:900;fill:#173f2c;text-anchor:middle;letter-spacing:1px}.small{font-family:Arial,sans-serif;font-size:20px;font-weight:800;fill:#173f2c;text-anchor:middle}.tile{fill:#fff8e5;stroke:#173f2c;stroke-width:5}.barBrown{fill:#8b5a2b}.barOrange{fill:#f28a22}.barRed{fill:#d23b2d}.barBlue{fill:#244f9e}.price{font-family:Arial Black,Arial,sans-serif;font-size:34px;font-weight:900;fill:#173f2c;text-anchor:middle}.name{font-family:Georgia,serif;font-size:25px;font-weight:700;fill:#173f2c;text-anchor:middle}.line{stroke:#173f2c;stroke-width:3}.icon{fill:#f4ead1;stroke:#173f2c;stroke-width:4}.arrow{fill:none;stroke:#7c6a34;stroke-width:8;marker-end:url(#arr)}
+    </style>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#7c6a34"/></marker>
+  </defs>
+  <rect class="bg" width="1600" height="1600"/>
+  <rect class="center" x="500" y="500" width="600" height="600" rx="30"/>
+  <text class="label" x="800" y="760">WEEDOPOLIS</text>
+  <text class="small" x="800" y="810">Orientation Proof</text>
+  <text class="small" x="800" y="850">Each tile keeps: Color → Title → Image → Bottom Price</text>
+
+  <!-- bottom-facing proof -->
+  <g transform="translate(600 1110)">
+    <rect class="tile" x="0" y="0" width="400" height="360"/>
+    <rect class="barBrown" x="0" y="0" width="400" height="50"/>
+    <text class="name" x="200" y="95">ACAPULCO GOLD</text>
+    <circle class="icon" cx="200" cy="190" r="62"/>
+    <line class="line" x1="35" y1="270" x2="365" y2="270"/>
+    <text class="price" x="200" y="322">60 BUD BUCKS</text>
+  </g>
+  <text class="label" x="800" y="1535">BOTTOM ROW FACES BOTTOM</text>
+
+  <!-- top-facing proof -->
+  <g transform="translate(1000 490) rotate(180)">
+    <rect class="tile" x="0" y="0" width="400" height="360"/>
+    <rect class="barRed" x="0" y="0" width="400" height="50"/>
+    <text class="name" x="200" y="95">GSC</text>
+    <circle class="icon" cx="200" cy="190" r="62"/>
+    <line class="line" x1="35" y1="270" x2="365" y2="270"/>
+    <text class="price" x="200" y="322">220 BUD BUCKS</text>
+  </g>
+  <text class="label" x="800" y="110">TOP ROW FACES TOP</text>
+
+  <!-- left-facing proof -->
+  <g transform="translate(490 1000) rotate(-90)">
+    <rect class="tile" x="0" y="0" width="400" height="360"/>
+    <rect class="barOrange" x="0" y="0" width="400" height="50"/>
+    <text class="name" x="200" y="95">BLUE DREAM</text>
+    <circle class="icon" cx="200" cy="190" r="62"/>
+    <line class="line" x1="35" y1="270" x2="365" y2="270"/>
+    <text class="price" x="200" y="322">200 BUD BUCKS</text>
+  </g>
+  <text class="label" x="190" y="805" transform="rotate(-90 190 805)">LEFT ROW FACES LEFT</text>
+
+  <!-- right-facing proof -->
+  <g transform="translate(1110 600) rotate(90)">
+    <rect class="tile" x="0" y="0" width="400" height="360"/>
+    <rect class="barBlue" x="0" y="0" width="400" height="50"/>
+    <text class="name" x="200" y="95">OG KUSH</text>
+    <circle class="icon" cx="200" cy="190" r="62"/>
+    <line class="line" x1="35" y1="270" x2="365" y2="270"/>
+    <text class="price" x="200" y="322">350 BUD BUCKS</text>
+  </g>
+  <text class="label" x="1410" y="805" transform="rotate(90 1410 805)">RIGHT ROW FACES RIGHT</text>
+
+  <path class="arrow" d="M800 1040 L800 1125"/>
+  <path class="arrow" d="M800 560 L800 475"/>
+  <path class="arrow" d="M560 800 L475 800"/>
+  <path class="arrow" d="M1040 800 L1125 800"/>
+</svg>
