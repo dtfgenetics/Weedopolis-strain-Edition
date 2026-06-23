@@ -1,0 +1,57 @@
+{
+  "game_name": "Weedopolis",
+  "edition": "Strain City Edition",
+  "authoritative_repository": "dtfgenetics/Weedopolis-strain-Edition",
+  "legacy_repositories_to_avoid": [
+    "dtfgenetics/Potopoly-strain-edition"
+  ],
+  "board": {
+    "space_count": 40,
+    "corner_count": 4,
+    "strain_property_count": 22,
+    "category_space_count": 4,
+    "card_draw_space_count": 6,
+    "utility_count": 2,
+    "tax_fee_count": 2,
+    "target_print_size_inches": "20x20",
+    "print_dpi": 300
+  },
+  "orientation_rule": {
+    "bottom": "faces bottom edge",
+    "left": "faces left edge",
+    "top": "faces top edge",
+    "right": "faces right edge",
+    "property_tile_order": [
+      "color bar",
+      "strain name",
+      "icon/image",
+      "bold price"
+    ]
+  },
+  "replacement_terms": {
+    "money": "Bud Bucks",
+    "houses": "Grow Tents",
+    "hotels": "Dispensaries",
+    "chance": "High Chance",
+    "community_chest": "Community Stash",
+    "jail": "Trim Jail",
+    "go_to_jail": "Compliance Check",
+    "free_parking": "Smoke Break",
+    "go_start": "Start Session",
+    "railroads": ["Indica", "Sativa", "Hybrid", "Autoflower"]
+  },
+  "excluded_systems": [
+    "Harvest Cards",
+    "Pressure Cards"
+  ],
+  "money_denominations": [1, 5, 10, 20, 50, 100, 500],
+  "starting_money_bud_bucks": 1500,
+  "decks": {
+    "High Chance": {
+      "target_card_count": 24
+    },
+    "Community Stash": {
+      "target_card_count": 24
+    }
+  }
+}
