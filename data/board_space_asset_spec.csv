@@ -1,0 +1,41 @@
+space_number,title,type,side,facing,color_group,cost_or_fee,board_text,visual_icon,asset_filename,deed_or_deck_connection,production_notes
+1,Start Session,corner,bottom,bottom_edge,none,Collect 200,START SESSION / COLLECT 200 BUD BUCKS,start arrow with smoke trail and cannabis leaf,space_01_start_session.svg,none,Large corner; must read as starting point
+2,Acapulco Gold,property,bottom,bottom_edge,brown,60,ACAPULCO GOLD / 60 BUD BUCKS,gold sun with small golden nug,space_02_acapulco_gold.svg,deed_acapulco_gold.svg,Small first property; bold price
+3,Community Stash,card,bottom,bottom_edge,none,Draw card,COMMUNITY STASH / DRAW CARD,stash chest or jar with leaf mark,space_03_community_stash.svg,community_stash_deck,Reusable card space style
+4,Maui Wowie,property,bottom,bottom_edge,brown,60,MAUI WOWIE / 60 BUD BUCKS,tropical wave with leaf,space_04_maui_wowie.svg,deed_maui_wowie.svg,Pair with Acapulco Gold
+5,420 Tax,tax,bottom,bottom_edge,none,Pay 200,420 TAX / PAY 200 BUD BUCKS,420 receipt or tax stamp,space_05_420_tax.svg,none,Fee space not ownable
+6,Indica,category,bottom,bottom_edge,category,200,INDICA / 200 BUD BUCKS,indica badge with couch/moon feel,space_06_indica.svg,deed_indica.svg,Category deed; railroad-style rent scaling
+7,Northern Lights,property,bottom,bottom_edge,light_blue,100,NORTHERN LIGHTS / 100 BUD BUCKS,aurora over cannabis leaf,space_07_northern_lights.svg,deed_northern_lights.svg,Light blue set
+8,High Chance,card,bottom,bottom_edge,none,Draw card,HIGH CHANCE / DRAW CARD,large question mark made of smoke,space_08_high_chance.svg,high_chance_deck,Reusable card space style
+9,Jack Herer,property,bottom,bottom_edge,light_blue,100,JACK HERER / 100 BUD BUCKS,pen nib or heritage badge with leaf,space_09_jack_herer.svg,deed_jack_herer.svg,Light blue set
+10,Durban Poison,property,bottom,bottom_edge,light_blue,120,DURBAN POISON / 120 BUD BUCKS,lightning spear with leaf,space_10_durban_poison.svg,deed_durban_poison.svg,Light blue set high property
+11,Trim Jail / Just Visiting,corner,left,left_edge,none,None,TRIM JAIL / JUST VISITING,trim scissors and simple bars,space_11_trim_jail.svg,none,Corner; left side orientation
+12,White Widow,property,left,left_edge,pink,140,WHITE WIDOW / 140 BUD BUCKS,white spiderweb leaf,space_12_white_widow.svg,deed_white_widow.svg,Pink set
+13,Grow Lights,utility,left,left_edge,utility,150,GROW LIGHTS / 150 BUD BUCKS,grow light fixture shining on leaf,space_13_grow_lights.svg,deed_grow_lights.svg,Utility; rent by dice roll
+14,Blueberry,property,left,left_edge,pink,140,BLUEBERRY / 140 BUD BUCKS,blue berry cluster with leaf,space_14_blueberry.svg,deed_blueberry.svg,Pink set
+15,Granddaddy Purple,property,left,left_edge,pink,160,GRANDDADDY PURPLE / 160 BUD BUCKS,purple crown and grape cluster,space_15_granddaddy_purple.svg,deed_granddaddy_purple.svg,Pink set high property
+16,Sativa,category,left,left_edge,category,200,SATIVA / 200 BUD BUCKS,sativa badge with sun/energy rays,space_16_sativa.svg,deed_sativa.svg,Category deed
+17,Community Stash,card,left,left_edge,none,Draw card,COMMUNITY STASH / DRAW CARD,stash chest or jar with leaf mark,space_17_community_stash.svg,community_stash_deck,Card space; left orientation
+18,Green Crack,property,left,left_edge,orange,180,GREEN CRACK / 180 BUD BUCKS,green lightning crack symbol,space_18_green_crack.svg,deed_green_crack.svg,Orange set
+19,Pineapple Express,property,left,left_edge,orange,180,PINEAPPLE EXPRESS / 180 BUD BUCKS,pineapple with train smoke,space_19_pineapple_express.svg,deed_pineapple_express.svg,Orange set
+20,Blue Dream,property,left,left_edge,orange,200,BLUE DREAM / 200 BUD BUCKS,blue dream cloud with crescent moon,space_20_blue_dream.svg,deed_blue_dream.svg,Orange set high property
+21,Smoke Break,corner,top,top_edge,none,None,SMOKE BREAK,ashtray/smoke lounge icon,space_21_smoke_break.svg,none,Free Parking-style corner; no automatic jackpot unless rulebook adds it
+22,GSC,property,top,top_edge,red,220,GSC / 220 BUD BUCKS,cookie leaf badge,space_22_gsc.svg,deed_gsc.svg,Red dessert set
+23,High Chance,card,top,top_edge,none,Draw card,HIGH CHANCE / DRAW CARD,large question mark made of smoke,space_23_high_chance.svg,high_chance_deck,Top orientation
+24,Cookies & Cream,property,top,top_edge,red,220,COOKIES & CREAM / 220 BUD BUCKS,cookies and cream swirl with leaf,space_24_cookies_and_cream.svg,deed_cookies_and_cream.svg,Red dessert set
+25,Gelato,property,top,top_edge,red,240,GELATO / 240 BUD BUCKS,gelato scoop with leaf,space_25_gelato.svg,deed_gelato.svg,Red set high property
+26,Hybrid,category,top,top_edge,category,200,HYBRID / 200 BUD BUCKS,split indica/sativa badge,space_26_hybrid.svg,deed_hybrid.svg,Category deed
+27,Wedding Cake,property,top,top_edge,yellow,260,WEDDING CAKE / 260 BUD BUCKS,cake slice with leaf frosting,space_27_wedding_cake.svg,deed_wedding_cake.svg,Yellow set
+28,Runtz,property,top,top_edge,yellow,260,RUNTZ / 260 BUD BUCKS,candy bag with small leaf,space_28_runtz.svg,deed_runtz.svg,Yellow set
+29,Water Works,utility,top,top_edge,utility,150,WATER WORKS / 150 BUD BUCKS,water drop and irrigation pipe,space_29_water_works.svg,deed_water_works.svg,Utility; rent by dice roll
+30,Zkittlez,property,top,top_edge,yellow,280,ZKITTLEZ / 280 BUD BUCKS,candy rainbow with leaf,space_30_zkittlez.svg,deed_zkittlez.svg,Yellow set high property
+31,Compliance Check,corner,right,right_edge,none,Go to Trim Jail,COMPLIANCE CHECK / GO TO TRIM JAIL,clipboard with checkmark and warning arrow,space_31_compliance_check.svg,none,Go-to-jail corner; no passing Start collection
+32,Chemdawg,property,right,right_edge,green,300,CHEMDAWG / 300 BUD BUCKS,chemical tag/dog badge with leaf,space_32_chemdawg.svg,deed_chemdawg.svg,Green set
+33,Sour Diesel,property,right,right_edge,green,300,SOUR DIESEL / 300 BUD BUCKS,fuel can with smoke,space_33_sour_diesel.svg,deed_sour_diesel.svg,Green set
+34,Community Stash,card,right,right_edge,none,Draw card,COMMUNITY STASH / DRAW CARD,stash chest or jar with leaf mark,space_34_community_stash.svg,community_stash_deck,Right orientation
+35,GG4,property,right,right_edge,green,320,GG4 / 320 BUD BUCKS,glue drip leaf icon,space_35_gg4.svg,deed_gg4.svg,Green set high property
+36,Autoflower,category,right,right_edge,category,200,AUTOFLOWER / 200 BUD BUCKS,clock flower cycle badge,space_36_autoflower.svg,deed_autoflower.svg,Category deed
+37,High Chance,card,right,right_edge,none,Draw card,HIGH CHANCE / DRAW CARD,large question mark made of smoke,space_37_high_chance.svg,high_chance_deck,Right orientation
+38,OG Kush,property,right,right_edge,dark_blue,350,OG KUSH / 350 BUD BUCKS,OG crown/kush mountain leaf,space_38_og_kush.svg,deed_og_kush.svg,Dark blue premium set
+39,Lab Testing Fee,fee,right,right_edge,none,Pay 100,LAB TESTING FEE / PAY 100 BUD BUCKS,lab vial and test report,space_39_lab_testing_fee.svg,none,Fee space not ownable
+40,Permanent Marker,property,right,right_edge,dark_blue,400,PERMANENT MARKER / 400 BUD BUCKS,marker pen with ink leaf,space_40_permanent_marker.svg,deed_permanent_marker.svg,Final premium property
