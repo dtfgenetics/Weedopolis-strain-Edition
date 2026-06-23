@@ -1,0 +1,41 @@
+space_number,space_name,space_type,board_side,orientation,color_group,purchase_price_bud_bucks,rent_base,upgrade_cost_bud_bucks,icon_direction,deed_card_required,notes
+0,Start Session,corner,bottom,bottom_edge,none,0,0,0,start arrow / smoke trail,no,Collect 200 Bud Bucks when passing or landing
+1,Acapulco Gold,property,bottom,bottom_edge,brown,60,2,50,gold sun / golden nug,yes,First brown strain property
+2,Community Stash,card,bottom,bottom_edge,none,0,0,0,stash jar / community card,no,Draw Community Stash
+3,Maui Wowie,property,bottom,bottom_edge,brown,60,4,50,tropical wave / island leaf,yes,Second brown strain property
+4,420 Tax,tax,bottom,bottom_edge,none,0,0,0,tax stamp / 420 receipt,no,Pay 200 Bud Bucks unless changed in rules
+5,Indica,category,bottom,bottom_edge,category,200,25,0,indica badge / couch icon,yes,Railroad replacement category
+6,Northern Lights,property,bottom,bottom_edge,light_blue,100,6,50,aurora leaf glow,yes,Light blue set
+7,High Chance,card,bottom,bottom_edge,none,0,0,0,chance smoke card,no,Draw High Chance
+8,Jack Herer,property,bottom,bottom_edge,light_blue,100,6,50,pen / legendary leaf badge,yes,Light blue set
+9,Durban Poison,property,bottom,bottom_edge,light_blue,120,8,50,lightning spear / energetic leaf,yes,Light blue set
+10,Trim Jail / Just Visiting,corner,left,left_edge,none,0,0,0,trimming scissors / barred trim room,no,Jail parody corner
+11,White Widow,property,left,left_edge,pink,140,10,100,white spiderweb leaf,yes,Pink set
+12,Grow Lights,utility,left,left_edge,utility,150,0,0,grow light fixture,yes,Utility
+13,Blueberry,property,left,left_edge,pink,140,10,100,blue berry cluster leaf,yes,Pink set
+14,Granddaddy Purple,property,left,left_edge,pink,160,12,100,purple crown / grape leaf,yes,Pink set
+15,Sativa,category,left,left_edge,category,200,25,0,sativa badge / sun icon,yes,Railroad replacement category
+16,Community Stash,card,left,left_edge,none,0,0,0,stash jar / community card,no,Draw Community Stash
+17,Green Crack,property,left,left_edge,orange,180,14,100,green lightning crack,yes,Orange set
+18,Pineapple Express,property,left,left_edge,orange,180,14,100,pineapple train smoke,yes,Orange set
+19,Blue Dream,property,left,left_edge,orange,200,16,100,blue cloud / dream moon,yes,Orange set
+20,Smoke Break,corner,top,top_edge,none,0,0,0,smoke lounge / parking-style break,no,Free Parking-style corner
+21,GSC,property,top,top_edge,red,220,18,150,cookie leaf badge,yes,Red set
+22,High Chance,card,top,top_edge,none,0,0,0,chance smoke card,no,Draw High Chance
+23,Cookies & Cream,property,top,top_edge,red,220,18,150,cookies cream swirl leaf,yes,Red set
+24,Gelato,property,top,top_edge,red,240,20,150,gelato scoop leaf,yes,Red set
+25,Hybrid,category,top,top_edge,category,200,25,0,hybrid split badge,yes,Railroad replacement category
+26,Wedding Cake,property,top,top_edge,yellow,260,22,150,cake slice leaf,yes,Yellow set
+27,Runtz,property,top,top_edge,yellow,260,22,150,candy bag / rainbow leaf,yes,Yellow set
+28,Water Works,utility,top,top_edge,utility,150,0,0,water drop / irrigation pipe,yes,Utility
+29,Zkittlez,property,top,top_edge,yellow,280,24,150,candy rainbow leaf,yes,Yellow set
+30,Compliance Check,corner,right,right_edge,none,0,0,0,clipboard / warning stamp,no,Go to Trim Jail
+31,Chemdawg,property,right,right_edge,green,300,26,200,chemical dog tag leaf,yes,Green set
+32,Sour Diesel,property,right,right_edge,green,300,26,200,fuel can / diesel smoke,yes,Green set
+33,Community Stash,card,right,right_edge,none,0,0,0,stash jar / community card,no,Draw Community Stash
+34,GG4,property,right,right_edge,green,320,28,200,glue drip leaf,yes,Green set
+35,Autoflower,category,right,right_edge,category,200,25,0,auto cycle badge / clock flower,yes,Railroad replacement category
+36,High Chance,card,right,right_edge,none,0,0,0,chance smoke card,no,Draw High Chance
+37,OG Kush,property,right,right_edge,dark_blue,350,35,200,og crown / kush leaf,yes,Dark blue set
+38,Lab Testing Fee,fee,right,right_edge,none,0,0,0,lab vial / test report,no,Pay 100 Bud Bucks unless changed in rules
+39,Permanent Marker,property,right,right_edge,dark_blue,400,50,200,marker pen / permanent ink leaf,yes,Final dark blue strain property
