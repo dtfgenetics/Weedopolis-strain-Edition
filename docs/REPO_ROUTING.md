@@ -6,9 +6,9 @@ All Weedopolis production work must happen in:
 
 `dtfgenetics/Weedopolis-strain-Edition`
 
-## Do not use
+## Deleted legacy repository
 
-Do not use the older Potopoly repository for Weedopolis production work.
+The older Potopoly repository has been deleted and must not be used for Weedopolis production work.
 
 ## Reason
 
