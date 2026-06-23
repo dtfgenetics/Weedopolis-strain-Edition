@@ -1,0 +1,33 @@
+asset_id,category,asset_name,status,priority,format_needed,notes
+BOARD-001,board,Blank board base,needed,critical,SVG/PNG/PDF,20x20 master board with empty spaces and center zones
+BOARD-002,board,Bottom row template,needed,critical,SVG/PNG,All property tiles face bottom edge
+BOARD-003,board,Left row template,needed,critical,SVG/PNG,All property tiles face left edge
+BOARD-004,board,Top row template,needed,critical,SVG/PNG,All property tiles face top edge
+BOARD-005,board,Right row template,needed,critical,SVG/PNG,All property tiles face right edge
+BOARD-006,board,Full assembled board,needed,critical,PNG/PDF/SVG,Generated only after templates are approved
+BRAND-001,branding,Weedopolis logo,needed,critical,SVG/PNG,Public-facing name must be Weedopolis
+BRAND-002,branding,Strain City Edition ribbon,needed,medium,SVG/PNG,Subtitle element
+BRAND-003,branding,Color palette and type guide,needed,high,MD/JSON,Cream/deep green/gold/readable typography rules
+SPACE-001,board-space,4 corner spaces,needed,critical,SVG/PNG,Start Session; Trim Jail; Smoke Break; Compliance Check
+SPACE-002,board-space,22 strain property spaces,needed,critical,SVG/PNG,Generated from board_map.csv with correct orientation
+SPACE-003,board-space,4 category spaces,needed,high,SVG/PNG,Indica; Sativa; Hybrid; Autoflower
+SPACE-004,board-space,6 card draw spaces,needed,high,SVG/PNG,High Chance and Community Stash spaces
+SPACE-005,board-space,2 utilities,needed,high,SVG/PNG,Grow Lights and Water Works
+SPACE-006,board-space,2 taxes/fees,needed,high,SVG/PNG,420 Tax and Lab Testing Fee
+ICON-001,icons,22 strain icons,needed,critical,SVG/PNG,Unified simple high-contrast board icon set
+ICON-002,icons,Category/utility/tax icons,needed,high,SVG/PNG,Consistent support icon set
+DEED-001,deed-cards,Property deed template,needed,critical,SVG/PNG/PDF,Used for all strain property cards
+DEED-002,deed-cards,28 deed cards,needed,critical,PNG/PDF,22 strain + 4 category + 2 utility deeds
+DECK-001,High Chance,High Chance front/back templates,needed,critical,SVG/PNG,Card design system
+DECK-002,High Chance,24-card High Chance deck,needed,critical,CSV/JSON/PDF,Rules-balanced actions and print sheet
+DECK-003,Community Stash,Community Stash front/back templates,needed,critical,SVG/PNG,Card design system
+DECK-004,Community Stash,24-card Community Stash deck,needed,critical,CSV/JSON/PDF,Rules-balanced actions and print sheet
+MONEY-001,money,Bud Bucks bill set,needed,high,SVG/PNG/PDF,1/5/10/20/50/100/500 denominations
+TOKEN-001,tokens,Player token set,needed,medium,SVG/PNG/STL,6-8 player tokens
+TOKEN-002,tokens,Grow Tent pieces,needed,high,SVG/PNG/STL,House replacement
+TOKEN-003,tokens,Dispensary pieces,needed,high,SVG/PNG/STL,Hotel replacement
+RULES-001,rules,Full rulebook,needed,critical,MD/PDF,Simple playable rulebook after mechanics lock
+RULES-002,rules,Quick start card,needed,high,PNG/PDF,Setup and turn order
+BOX-001,box,Retail box art and dieline,needed,medium,PDF/SVG/PNG,Front/back/sides/physical prototype box
+DIGITAL-001,digital,Game data JSON files,needed,high,JSON,Board map and card deck data for browser version
+DIGITAL-002,digital,Playable web prototype,needed,medium,HTML/CSS/JS,Future browser implementation
