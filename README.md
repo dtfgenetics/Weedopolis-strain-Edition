@@ -2,7 +2,17 @@
 
 Production repository for **Weedopolis: Strain City Edition**, a cannabis-themed property-trading board game.
 
-This repo is the source of truth for the game system, board map, asset checklist, card decks, print files, and future digital implementation.
+## Authoritative repository
+
+Use this repository only:
+
+`dtfgenetics/Weedopolis-strain-Edition`
+
+Do not use the older Potopoly repository for production work. All future board maps, assets, rules, card decks, print files, and digital game files belong here.
+
+## Purpose
+
+This repo is the source of truth for the Weedopolis game system, board map, asset checklist, card decks, print files, and future digital implementation.
 
 ## Core production rule
 
@@ -63,6 +73,7 @@ Property tile order is always:
 
 - `docs/WEEDOPOLIS_PRODUCTION_BIBLE.md` — locked design/game rules
 - `docs/BUILD_PHASES.md` — production order
+- `docs/REPO_ROUTING.md` — confirms this is the only production repo
 - `data/board_map.csv` — official 40-space board map
 - `data/asset_registry.csv` — full asset checklist
 - `data/color_groups.csv` — property color set structure
