@@ -1,0 +1,29 @@
+space_number,property_name,card_type,color_group,purchase_price_bud_bucks,rent_base,rent_full_set_no_tents,rent_1_grow_tent,rent_2_grow_tents,rent_3_grow_tents,rent_4_grow_tents,rent_dispensary,upgrade_cost_bud_bucks,mortgage_value_bud_bucks,card_visual_direction
+2,Acapulco Gold,strain_deed,brown,60,2,4,10,30,90,160,250,50,30,gold sun / golden nug
+4,Maui Wowie,strain_deed,brown,60,4,8,20,60,180,320,450,50,30,tropical wave / island leaf
+7,Northern Lights,strain_deed,light_blue,100,6,12,30,90,270,400,550,50,50,aurora leaf glow
+9,Jack Herer,strain_deed,light_blue,100,6,12,30,90,270,400,550,50,50,pen / legendary leaf badge
+10,Durban Poison,strain_deed,light_blue,120,8,16,40,100,300,450,600,50,60,lightning spear / energetic leaf
+12,White Widow,strain_deed,pink,140,10,20,50,150,450,625,750,100,70,white spiderweb leaf
+14,Blueberry,strain_deed,pink,140,10,20,50,150,450,625,750,100,70,blue berry cluster leaf
+15,Granddaddy Purple,strain_deed,pink,160,12,24,60,180,500,700,900,100,80,purple crown / grape leaf
+18,Green Crack,strain_deed,orange,180,14,28,70,200,550,750,950,100,90,green lightning crack
+19,Pineapple Express,strain_deed,orange,180,14,28,70,200,550,750,950,100,90,pineapple train smoke
+20,Blue Dream,strain_deed,orange,200,16,32,80,220,600,800,1000,100,100,blue cloud / dream moon
+22,GSC,strain_deed,red,220,18,36,90,250,700,875,1050,150,110,cookie leaf badge
+24,Cookies & Cream,strain_deed,red,220,18,36,90,250,700,875,1050,150,110,cookies cream swirl leaf
+25,Gelato,strain_deed,red,240,20,40,100,300,750,925,1100,150,120,gelato scoop leaf
+27,Wedding Cake,strain_deed,yellow,260,22,44,110,330,800,975,1150,150,130,cake slice leaf
+28,Runtz,strain_deed,yellow,260,22,44,110,330,800,975,1150,150,130,candy bag / rainbow leaf
+30,Zkittlez,strain_deed,yellow,280,24,48,120,360,850,1025,1200,150,140,candy rainbow leaf
+32,Chemdawg,strain_deed,green,300,26,52,130,390,900,1100,1275,200,150,chemical dog tag leaf
+33,Sour Diesel,strain_deed,green,300,26,52,130,390,900,1100,1275,200,150,fuel can / diesel smoke
+35,GG4,strain_deed,green,320,28,56,150,450,1000,1200,1400,200,160,glue drip leaf
+38,OG Kush,strain_deed,dark_blue,350,35,70,175,500,1100,1300,1500,200,175,og crown / kush leaf
+40,Permanent Marker,strain_deed,dark_blue,400,50,100,200,600,1400,1700,2000,200,200,marker pen / permanent ink leaf
+6,Indica,category_deed,category,200,25,50,100,200,0,0,0,0,100,indica badge / couch icon
+16,Sativa,category_deed,category,200,25,50,100,200,0,0,0,0,100,sativa badge / sun icon
+26,Hybrid,category_deed,category,200,25,50,100,200,0,0,0,0,100,hybrid split badge
+36,Autoflower,category_deed,category,200,25,50,100,200,0,0,0,0,100,auto cycle badge / clock flower
+13,Grow Lights,utility_deed,utility,150,0,0,0,0,0,0,0,0,75,grow light fixture; rent is 4x dice roll if one utility owned and 10x dice roll if both owned
+29,Water Works,utility_deed,utility,150,0,0,0,0,0,0,0,0,75,water drop / irrigation pipe; rent is 4x dice roll if one utility owned and 10x dice roll if both owned
