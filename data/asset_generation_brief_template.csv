@@ -1,0 +1,16 @@
+field_name,required,purpose,example
+asset_name,yes,Human-readable name of the asset,Blue Dream Board Space
+asset_id,yes,Links the asset to registry or board map,SPACE-20
+asset_type,yes,Defines asset family,board_space_property
+source_data_file,yes,Traceability to source row,data/board_space_asset_spec.csv
+source_row_or_key,yes,Exact source row or key,space_number 20
+required_exact_text,yes,Text that must appear exactly,"BLUE DREAM / 200 / BUD BUCKS"
+mechanical_function,yes,What the asset does in the game,Ownable strain property; pays rent; can receive Grow Tents
+orientation,yes,Which way text/art faces,left_edge
+layout_order,yes,Text/image hierarchy,color bar > strain name > icon > bold price
+color_group_or_deck,yes,Visual family,orange
+visual_icon_direction,yes,Main image/icon guidance,blue dream cloud with crescent moon
+style_lane,yes,Creative style boundary,vintage cannabis board game; cream parchment; deep green ink; simple icon
+avoid,yes,Common rejection criteria,wrong orientation; unreadable text; wrong price; extra words; cheap clipart
+output_format,yes,Target deliverable,SVG + transparent PNG
+acceptance_checks,yes,What must be true to approve,correct name; correct price; correct side orientation; readable at board size
