@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20in" height="20in" viewBox="0 0 6000 6000">
+  <title>Weedopolis Blank Board Base 20x20</title>
+  <desc>Production blank board base. 40 total spaces, 4 corners, 9 non-corner spaces per side. No final names, prices, or icons.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f4ead1;}
+      .track{fill:#fff8e5;stroke:#173f2c;stroke-width:10;}
+      .grid{fill:none;stroke:#173f2c;stroke-width:8;}
+      .outer{fill:none;stroke:#173f2c;stroke-width:28;}
+      .inner{fill:none;stroke:#173f2c;stroke-width:18;}
+      .safe{fill:none;stroke:#7c6a34;stroke-width:8;stroke-dasharray:36 28;opacity:.45;}
+      .subsafe{fill:none;stroke:#173f2c;stroke-width:6;stroke-dasharray:22 20;opacity:.22;}
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="6000" height="6000"/>
+  <rect class="outer" x="40" y="40" width="5920" height="5920" rx="36"/>
+
+  <!-- Perimeter track background -->
+  <rect class="track" x="0" y="0" width="6000" height="750"/>
+  <rect class="track" x="0" y="5250" width="6000" height="750"/>
+  <rect class="track" x="0" y="0" width="750" height="6000"/>
+  <rect class="track" x="5250" y="0" width="750" height="6000"/>
+
+  <!-- Inner border around play track -->
+  <rect class="inner" x="750" y="750" width="4500" height="4500"/>
+
+  <!-- Corner spaces -->
+  <rect class="grid" x="0" y="0" width="750" height="750"/>
+  <rect class="grid" x="5250" y="0" width="750" height="750"/>
+  <rect class="grid" x="0" y="5250" width="750" height="750"/>
+  <rect class="grid" x="5250" y="5250" width="750" height="750"/>
+
+  <!-- Top row: 9 spaces -->
+  <rect class="grid" x="750" y="0" width="500" height="750"/>
+  <rect class="grid" x="1250" y="0" width="500" height="750"/>
+  <rect class="grid" x="1750" y="0" width="500" height="750"/>
+  <rect class="grid" x="2250" y="0" width="500" height="750"/>
+  <rect class="grid" x="2750" y="0" width="500" height="750"/>
+  <rect class="grid" x="3250" y="0" width="500" height="750"/>
+  <rect class="grid" x="3750" y="0" width="500" height="750"/>
+  <rect class="grid" x="4250" y="0" width="500" height="750"/>
+  <rect class="grid" x="4750" y="0" width="500" height="750"/>
+
+  <!-- Bottom row: 9 spaces -->
+  <rect class="grid" x="750" y="5250" width="500" height="750"/>
+  <rect class="grid" x="1250" y="5250" width="500" height="750"/>
+  <rect class="grid" x="1750" y="5250" width="500" height="750"/>
+  <rect class="grid" x="2250" y="5250" width="500" height="750"/>
+  <rect class="grid" x="2750" y="5250" width="500" height="750"/>
+  <rect class="grid" x="3250" y="5250" width="500" height="750"/>
+  <rect class="grid" x="3750" y="5250" width="500" height="750"/>
+  <rect class="grid" x="4250" y="5250" width="500" height="750"/>
+  <rect class="grid" x="4750" y="5250" width="500" height="750"/>
+
+  <!-- Left row: 9 spaces -->
+  <rect class="grid" x="0" y="750" width="750" height="500"/>
+  <rect class="grid" x="0" y="1250" width="750" height="500"/>
+  <rect class="grid" x="0" y="1750" width="750" height="500"/>
+  <rect class="grid" x="0" y="2250" width="750" height="500"/>
+  <rect class="grid" x="0" y="2750" width="750" height="500"/>
+  <rect class="grid" x="0" y="3250" width="750" height="500"/>
+  <rect class="grid" x="0" y="3750" width="750" height="500"/>
+  <rect class="grid" x="0" y="4250" width="750" height="500"/>
+  <rect class="grid" x="0" y="4750" width="750" height="500"/>
+
+  <!-- Right row: 9 spaces -->
+  <rect class="grid" x="5250" y="750" width="750" height="500"/>
+  <rect class="grid" x="5250" y="1250" width="750" height="500"/>
+  <rect class="grid" x="5250" y="1750" width="750" height="500"/>
+  <rect class="grid" x="5250" y="2250" width="750" height="500"/>
+  <rect class="grid" x="5250" y="2750" width="750" height="500"/>
+  <rect class="grid" x="5250" y="3250" width="750" height="500"/>
+  <rect class="grid" x="5250" y="3750" width="750" height="500"/>
+  <rect class="grid" x="5250" y="4250" width="750" height="500"/>
+  <rect class="grid" x="5250" y="4750" width="750" height="500"/>
+
+  <!-- Center safe-zone guides: no final text, no final icons -->
+  <rect class="safe" x="1025" y="1025" width="3950" height="3950" rx="60"/>
+  <rect class="subsafe" x="1980" y="2200" width="2040" height="700" rx="42"/>
+  <rect class="subsafe" x="1350" y="3350" width="1300" height="860" rx="42"/>
+  <rect class="subsafe" x="3350" y="3350" width="1300" height="860" rx="42"/>
+</svg>
