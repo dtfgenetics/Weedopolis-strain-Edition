@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="750" viewBox="0 0 500 750">
+  <title>Space 20 Blue Dream Left Proof</title>
+  <defs><style>
+    .tile{fill:#fff8e5;stroke:#173f2c;stroke-width:8}.bar{fill:#f28a22;stroke:#173f2c;stroke-width:6}.title{font-family:Georgia,serif;font-size:42px;font-weight:700;fill:#173f2c;text-anchor:middle}.price{font-family:Arial Black,Arial,sans-serif;font-size:56px;font-weight:900;fill:#173f2c;text-anchor:middle}.sub{font-family:Arial,sans-serif;font-size:24px;font-weight:900;fill:#173f2c;text-anchor:middle;letter-spacing:2px}.line{stroke:#173f2c;stroke-width:5;opacity:.7}.cloud{fill:#93c7e8;stroke:#173f2c;stroke-width:6}.moon{fill:#f6d46b;stroke:#173f2c;stroke-width:5}.note{font-family:Arial,sans-serif;font-size:18px;font-weight:700;fill:#7c6a34;text-anchor:middle;letter-spacing:1px}</style></defs>
+  <rect class="tile" x="4" y="4" width="492" height="742" rx="10"/>
+  <rect class="bar" x="4" y="4" width="492" height="86" rx="8"/>
+  <text class="note" x="250" y="58">ORANGE SET</text>
+  <line class="line" x1="4" y1="90" x2="496" y2="90"/>
+  <text class="title" x="250" y="160">BLUE DREAM</text>
+  <g transform="translate(250 365)">
+    <circle class="cloud" cx="-65" cy="25" r="70"/>
+    <circle class="cloud" cx="5" cy="-22" r="92"/>
+    <circle class="cloud" cx="92" cy="28" r="68"/>
+    <rect class="cloud" x="-120" y="25" width="240" height="72" rx="36"/>
+    <path class="moon" d="M86,-118 C45,-86 42,-22 84,12 C29,12 -12,-28 -12,-80 C-12,-126 33,-158 86,-118 Z"/>
+  </g>
+  <line class="line" x1="40" y1="560" x2="460" y2="560"/>
+  <text class="price" x="250" y="640">200</text>
+  <text class="sub" x="250" y="690">BUD BUCKS</text>
+</svg>
