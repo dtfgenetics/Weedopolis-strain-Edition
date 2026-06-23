@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="750" viewBox="0 0 500 750">
+  <title>Space 22 GSC Top Proof</title>
+  <defs><style>
+    .tile{fill:#fff8e5;stroke:#173f2c;stroke-width:8}.bar{fill:#d23b2d;stroke:#173f2c;stroke-width:6}.title{font-family:Georgia,serif;font-size:58px;font-weight:700;fill:#173f2c;text-anchor:middle}.price{font-family:Arial Black,Arial,sans-serif;font-size:56px;font-weight:900;fill:#173f2c;text-anchor:middle}.sub{font-family:Arial,sans-serif;font-size:24px;font-weight:900;fill:#173f2c;text-anchor:middle;letter-spacing:2px}.line{stroke:#173f2c;stroke-width:5;opacity:.7}.cookie{fill:#c89152;stroke:#173f2c;stroke-width:6}.chip{fill:#173f2c}.leaf{fill:#2d6b3f;stroke:#173f2c;stroke-width:4}.note{font-family:Arial,sans-serif;font-size:18px;font-weight:700;fill:#7c6a34;text-anchor:middle;letter-spacing:1px}</style></defs>
+  <rect class="tile" x="4" y="4" width="492" height="742" rx="10"/>
+  <rect class="bar" x="4" y="4" width="492" height="86" rx="8"/>
+  <text class="note" x="250" y="58">RED SET</text>
+  <line class="line" x1="4" y1="90" x2="496" y2="90"/>
+  <text class="title" x="250" y="170">GSC</text>
+  <g transform="translate(250 365)">
+    <circle class="cookie" cx="0" cy="0" r="128"/>
+    <circle class="chip" cx="-48" cy="-56" r="13"/><circle class="chip" cx="42" cy="-72" r="12"/><circle class="chip" cx="70" cy="4" r="13"/><circle class="chip" cx="-72" cy="38" r="12"/><circle class="chip" cx="8" cy="58" r="11"/>
+    <path class="leaf" d="M0,-20 C35,-72 72,-68 91,-28 C52,-27 30,-9 0,-20 Z" transform="rotate(24)"/>
+    <path class="leaf" d="M0,-20 C-35,-72 -72,-68 -91,-28 C-52,-27 -30,-9 0,-20 Z" transform="rotate(-24)"/>
+  </g>
+  <line class="line" x1="40" y1="560" x2="460" y2="560"/>
+  <text class="price" x="250" y="640">220</text>
+  <text class="sub" x="250" y="690">BUD BUCKS</text>
+</svg>
