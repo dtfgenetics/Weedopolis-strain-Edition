@@ -1,0 +1,38 @@
+component_id,component_family,component_name,count_needed,visual_direction,format_needed,production_notes
+COMP-001,board,Main Weedopolis board,1,20x20 vintage cannabis city board with 40 outward-facing spaces,SVG/PNG/PDF,Do not create as random whole-board art; assemble from approved pieces
+COMP-002,board,Blank board base,1,Cream board with borders center safe area and 40 empty spaces,SVG/PNG/PDF,No strain names prices or icons
+COMP-003,board,Bottom row overlay,1,All spaces face bottom edge,transparent PNG/SVG,Used to assemble board accurately
+COMP-004,board,Left row overlay,1,All spaces face left edge,transparent PNG/SVG,Used to assemble board accurately
+COMP-005,board,Top row overlay,1,All spaces face top edge,transparent PNG/SVG,Used to assemble board accurately
+COMP-006,board,Right row overlay,1,All spaces face right edge,transparent PNG/SVG,Used to assemble board accurately
+COMP-007,deed_cards,Strain deed cards,22,Premium deed/menu card with color bar and rent table,PNG/PDF/SVG,Generated from deed_values.csv
+COMP-008,deed_cards,Category deed cards,4,Badge-style deed card with rent by number owned,PNG/PDF/SVG,Indica/Sativa/Hybrid/Autoflower
+COMP-009,deed_cards,Utility deed cards,2,Utility deed with dice-based rent rule,PNG/PDF/SVG,Grow Lights and Water Works
+COMP-010,draw_cards,High Chance deck,24,Deep green question-mark smoke card system,PNG/PDF/CSV/JSON,Movement and swing-event deck
+COMP-011,draw_cards,Community Stash deck,24,Stash chest/jar card system,PNG/PDF/CSV/JSON,Community reward/fee deck
+COMP-012,money,1 Bud Buck bills,TBD,Small denomination light green bill,PNG/PDF/SVG,Print multiple per sheet
+COMP-013,money,5 Bud Bucks bills,TBD,Green bill with small leaf seal,PNG/PDF/SVG,Print multiple per sheet
+COMP-014,money,10 Bud Bucks bills,TBD,Blue-green bill with dispensary seal,PNG/PDF/SVG,Print multiple per sheet
+COMP-015,money,20 Bud Bucks bills,TBD,Gold-green bill with grow tent mark,PNG/PDF/SVG,Print multiple per sheet
+COMP-016,money,50 Bud Bucks bills,TBD,Purple-green bill with premium bud seal,PNG/PDF/SVG,Print multiple per sheet
+COMP-017,money,100 Bud Bucks bills,TBD,Dark green premium bill,PNG/PDF/SVG,Print multiple per sheet
+COMP-018,money,500 Bud Bucks bills,TBD,Gold premium high-value bill,PNG/PDF/SVG,Print multiple per sheet
+COMP-019,tokens,Grinder player token,1,Simple chunky grinder silhouette,SVG/PNG/STL,Readable at small size
+COMP-020,tokens,Lighter player token,1,Classic lighter silhouette with flame,SVG/PNG/STL,Readable at small size
+COMP-021,tokens,Nug jar player token,1,Small jar with bud visible,SVG/PNG/STL,Readable at small size
+COMP-022,tokens,Seed pack player token,1,Packet with leaf mark,SVG/PNG/STL,Readable at small size
+COMP-023,tokens,Rolling paper player token,1,Rolling paper booklet,SVG/PNG/STL,Readable at small size
+COMP-024,tokens,Dab tool player token,1,Small dab tool silhouette,SVG/PNG/STL,Readable at small size
+COMP-025,tokens,Trimmer scissors player token,1,Trim scissors,SVG/PNG/STL,Readable at small size
+COMP-026,tokens,Grow pot player token,1,Plant pot with sprout,SVG/PNG/STL,Readable at small size
+COMP-027,upgrade_pieces,Grow Tents,TBD,Small tent piece replacing houses,SVG/PNG/STL,Use on properties after complete color set
+COMP-028,upgrade_pieces,Dispensaries,TBD,Small storefront piece replacing hotels,SVG/PNG/STL,Requires 4 Grow Tents before upgrade
+COMP-029,dice,Standard dice,2,Optional custom leaf pip dice,physical/spec,Base game can use normal dice
+COMP-030,rulebook,Full rulebook,1,Cream/green booklet with examples,PDF/MD,Create after card and rent systems are locked
+COMP-031,rulebook,Quick start card,1,One-card setup and turn summary,PNG/PDF,Useful for prototype testing
+COMP-032,box,Box front,1,Premium Weedopolis logo with board/card/money visuals,PNG/PDF/SVG,Later phase
+COMP-033,box,Box back,1,Contents list and short gameplay pitch,PNG/PDF/SVG,Later phase
+COMP-034,box,Box sides,4,Shelf-facing Weedopolis branding,PNG/PDF/SVG,Later phase
+COMP-035,digital,Board data JSON,1,Machine-readable board map,JSON,Derived from CSV data
+COMP-036,digital,Card deck JSON,2,Machine-readable card deck data,JSON,Derived from card CSVs
+COMP-037,digital,Token sprites,8,Transparent digital player tokens,PNG/SVG,For browser version
