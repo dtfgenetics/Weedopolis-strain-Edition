@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weedopolis: Strain City Edition</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">Game prototype</p>
+      <h1>Weedopolis</h1>
+      <p>Strain City Edition</p>
+    </div>
+    <div class="header-actions">
+      <button id="loadGameBtn" type="button">Load Saved Game</button>
+      <button id="newGameTopBtn" type="button">New Game</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section id="setupPanel" class="panel setup-panel">
+      <h2>Start a game</h2>
+      <p>Enter 2-8 player names.</p>
+      <div class="player-name-grid" id="playerNameGrid"></div>
+      <button id="startGameBtn" type="button" class="primary">Start Session</button>
+    </section>
+
+    <section class="board-wrap">
+      <div id="board" class="board" aria-label="Weedopolis board"></div>
+    </section>
+
+    <aside class="sidebar">
+      <section class="panel"><h2>Turn</h2><div id="turnPanel"></div></section>
+      <section class="panel"><h2>Players</h2><div id="playersPanel"></div></section>
+      <section class="panel"><h2>Manage</h2><div id="managePanel"></div></section>
+      <section class="panel"><h2>Game log</h2><ol id="logPanel" class="log"></ol></section>
+    </aside>
+  </main>
+
+  <script src="js/weedopolis-edition.js"></script>
+  <script src="js/weedopolis-engine.js"></script>
+  <script src="js/weedopolis-ui.js"></script>
+  <script src="js/weedopolis-tests.js"></script>
+</body>
+</html>
