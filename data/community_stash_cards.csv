@@ -8,18 +8,18 @@ CS-06,Homegrown Gift,money,A grower blessed the table. Collect 75 Bud Bucks.,Col
 CS-07,Trim Help,money,You helped trim and got paid. Collect 100 Bud Bucks.,Collect 100,trimming scissors and money
 CS-08,Glass Accident,fee,You broke the good piece. Pay 100 Bud Bucks.,Pay bank 100,cracked glass piece
 CS-09,Stash Swap,player_interaction,Trade one unbuilt property with another willing player or do nothing.,Optional mutual trade of unbuilt properties,two hands swapping cards
-CS-10,Session Host,money,You hosted the session. Collect 25 Bud Bucks from each player.,Each other player pays current player 25,table with chairs and leaf
-CS-11,Too Loud,fee,Noise complaint. Pay 50 Bud Bucks.,Pay bank 50,warning sign with sound waves
-CS-12,Free Trim Pass,utility_card,Keep this card. Use it to leave Trim Jail once.,Player may leave Trim Jail once without paying,pass card with scissors icon
-CS-13,Lost Grinder,fee,Buy a new grinder. Pay 30 Bud Bucks.,Pay bank 30,missing grinder poster
-CS-14,Pop-Up Market,money,Collect 150 Bud Bucks.,Collect 150,pop-up booth with green awning
-CS-15,Stash Insurance,money,Collect 50 Bud Bucks for each complete color set you own.,Collect 50 per monopoly/color group owned,shield over property cards
-CS-16,Water Leak,fee,Pay 40 Bud Bucks per Grow Tent you own.,Pay 40 per Grow Tent,water drop over tent
-CS-17,Dispensary Bonus,money,Collect 100 Bud Bucks for each Dispensary you own.,Collect 100 per Dispensary,dispensary storefront with money burst
-CS-18,Clean Bong Duty,penalty,Miss your next rent collection opportunity.,The next rent owed to this player is ignored once,cleaning brush and smoky glass
-CS-19,Good Review,money,Collect 75 Bud Bucks.,Collect 75,review stars with leaf
-CS-20,Birthday Session,money,Every player gives you 10 Bud Bucks.,Each other player pays current player 10,birthday cake with leaf candle
-CS-21,Forgot The Grinder,penalty,Move back to the nearest Community Stash space and draw again.,Move backward to nearest Community Stash; draw card,back arrow to stash box
-CS-22,Local Event,money,Collect 125 Bud Bucks.,Collect 125,event ticket with leaf
-CS-23,Shared Harvest,money,Collect 25 Bud Bucks for each property you own.,Collect 25 per owned deed,basket of labeled jars
-CS-24,Stash Tax,fee,Pay 75 Bud Bucks.,Pay bank 75,tax label on stash jar
+CS-10,Start Session Invite,movement,Advance to Start Session. Collect 200 Bud Bucks.,Move player to space 1,session start arrow
+CS-11,Lab Paperwork,fee,Lab paperwork issue. Pay 50 Bud Bucks.,Pay bank 50,test report stamp
+CS-12,Community Class,money,Community grow class fills up. Collect 100 Bud Bucks.,Collect 100,packed classroom with leaf chart
+CS-13,Birthday Sesh,player_interaction,Birthday sesh. Collect 10 Bud Bucks from every player.,Each active player pays current player 10,birthday cake with smoke
+CS-14,Stash Refund,money,Stash jar refund. Collect 20 Bud Bucks.,Collect 20,refund tag on jar
+CS-15,Genetics Consult,money,Genetics consultation. Collect 25 Bud Bucks.,Collect 25,seed chart and bill
+CS-16,Harvest Bonus,money,Harvest bonus. Collect 100 Bud Bucks.,Collect 100,harvest basket
+CS-17,Local Market Day,money,Local market day. Collect 50 Bud Bucks.,Collect 50,market booth
+CS-18,Equipment Repair,fee,Equipment repair. Pay 100 Bud Bucks.,Pay bank 100,broken light fixture
+CS-19,Support Fund,fee,Community support fund. Pay 50 Bud Bucks.,Pay bank 50,donation jar
+CS-20,Build-Out Inspection,fee,Build-out inspection. Pay 40 per Grow Tent and 115 per Dispensary.,Pay per upgrade owned,inspection clipboard
+CS-21,Viral Review,money,Product review goes viral. Collect 200 Bud Bucks.,Collect 200,phone with viral smoke
+CS-22,Grow Lights Detour,movement,Advance to Grow Lights.,Move player to space 13,grow light arrow
+CS-23,Water Works Detour,movement,Advance to Water Works.,Move player to space 29,water drop arrow
+CS-24,Trim Jail Pass,special,Keep this card: skip one Trim Jail fee.,Held jail-free style card,trim scissors pass card
