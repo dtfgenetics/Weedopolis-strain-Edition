@@ -2,24 +2,24 @@ card_id,title,card_type,card_text,mechanical_effect,art_direction
 HC-01,Secret Smoke Session,movement,Advance to Start Session. Collect 200 Bud Bucks.,Move player to space 1 and collect 200,smoke trail pointing to start arrow
 HC-02,Compliance Sweep,penalty,Go directly to Trim Jail. Do not collect 200 Bud Bucks.,Move player to space 11; no Start payout,clipboard warning stamp
 HC-03,Back Alley Shortcut,movement,Move forward 3 spaces.,Advance player 3 spaces,sneaky alley arrow with smoke
-HC-04,Couch Locked,penalty,Take a Smoke Break. Skip your next turn.,Player loses next turn,couch with sleepy smoke cloud
-HC-05,Strain Hype,money,Your strain review goes viral. Collect 100 Bud Bucks.,Collect 100,sparkling review card with leaf
-HC-06,Overpriced Snacks,fee,You bought snacks for the table. Pay 50 Bud Bucks.,Pay bank 50,snack bag and receipt
-HC-07,Advance to Indica,movement,Advance to Indica. If owned by another player pay rent.,Move to space 6; pay rent if owned,indica badge with arrow
-HC-08,Advance to Hybrid,movement,Advance to Hybrid. If owned by another player pay rent.,Move to space 26; pay rent if owned,hybrid badge with arrow
-HC-09,Nearest Category,movement,Advance to the nearest category space. Pay double rent if owned.,Move to nearest Indica/Sativa/Hybrid/Autoflower; double rent if owned,split directional sign
-HC-10,Nearest Utility,movement,Advance to the nearest utility. Roll dice and pay owner 10x the roll if owned.,Move to nearest Grow Lights/Water Works; utility rent rule,utility arrow with dice
-HC-11,Dispensary Detour,movement,Advance to the nearest unowned property. You may buy it.,Move to next unowned property; may purchase,storefront arrow
-HC-12,Stash Audit,fee,Pay 25 Bud Bucks per Grow Tent and 100 Bud Bucks per Dispensary you own.,Pay property improvement assessment,inspection clipboard and tent icons
-HC-13,Seeds Came In,money,Collect 50 Bud Bucks.,Collect 50,seed pack delivery
-HC-14,Bad Batch Refund,money,Collect 75 Bud Bucks from the bank.,Collect 75,refund receipt with leaf
-HC-15,Rolling Papers Run,movement,Move back 2 spaces.,Move player back 2 spaces,rolling paper trail backwards
-HC-16,VIP Lounge,money,Collect 25 Bud Bucks from each player.,Each other player pays current player 25,velvet rope cannabis lounge
-HC-17,Missed The Session,penalty,Pay each player 25 Bud Bucks.,Current player pays every other player 25,empty chair at session table
-HC-18,Get Out Of Trim Jail,utility_card,Keep this card until needed or sell/trade it.,Player may leave Trim Jail once without paying,scissors cutting jail bars
-HC-19,Market Spike,money,Collect rent from one property you own even if no player is on it.,Choose one owned property; collect base rent from bank,upward price chart with leaf
-HC-20,Grow Tent Sale,bonus,Build one Grow Tent for 50 Bud Bucks less than normal this turn.,Discount applies to one Grow Tent purchase,sale tag on grow tent
-HC-21,Too Much Heat,fee,Pay 100 Bud Bucks for ventilation repairs.,Pay bank 100,fan and heat warning icon
-HC-22,Advance to OG Kush,movement,Advance to OG Kush. If owned by another player pay rent.,Move to space 38; pay rent if owned,premium kush badge arrow
-HC-23,Advance to Blue Dream,movement,Advance to Blue Dream. If owned by another player pay rent.,Move to space 20; pay rent if owned,blue dream cloud arrow
-HC-24,High Roller,money,Roll one die and collect 20 Bud Bucks times the result.,Roll 1 die; collect result x 20,dice with bud buck burst
+HC-04,Couch Locked,penalty,Take a Smoke Break. Skip your next turn.,Move player to Smoke Break; optional skip rule,couch with sleepy smoke cloud
+HC-05,Indica Invitation,movement,Advance to Indica. Collect 200 Bud Bucks if you pass Start Session.,Move player to space 6,indica badge with path arrow
+HC-06,Hybrid Hype Train,movement,Advance to Hybrid. Collect 200 Bud Bucks if you pass Start Session.,Move player to space 26,hybrid split badge with smoke arrow
+HC-07,OG Shortcut,movement,Advance to OG Kush.,Move player to space 38,og crown arrow
+HC-08,Gelato Drop,movement,Advance to Gelato. Collect 200 Bud Bucks if you pass Start Session.,Move player to space 25,gelato scoop with arrow
+HC-09,Nearest Premium Line,movement,Advance to nearest Premium Line. If owned pay double rent.,Move to nearest category space; rent multiplier 2,premium line badge
+HC-10,Premium Line Express,movement,Advance to nearest Premium Line. If owned pay double rent.,Move to nearest category space; rent multiplier 2,fast smoke trail
+HC-11,Utility Surge,movement,Advance to nearest utility. If owned pay ten times the dice roll.,Move to nearest utility; utility multiplier 10,grow light and water icon
+HC-12,Go Back Three,movement,Go back three spaces.,Move player back 3 spaces,reverse smoke arrow
+HC-13,Pop-Up Promo,money,Pop-up promo hit. Collect 50 Bud Bucks.,Collect 50,small booth with money
+HC-14,Packaging Delay,fee,Packaging delay. Pay 15 Bud Bucks.,Pay bank 15,delayed package stamp
+HC-15,Brand Collab,money,Brand collab pays off. Collect 150 Bud Bucks.,Collect 150,handshake with leaf
+HC-16,Influencer Shoutout,money,Influencer shoutout. Collect 100 Bud Bucks.,Collect 100,phone with smoke likes
+HC-17,Event Booth Fee,fee,Event booth fee. Pay 50 Bud Bucks.,Pay bank 50,event booth receipt
+HC-18,General Grow Repairs,fee,Make repairs: pay 25 per Grow Tent and 100 per Dispensary.,Pay per upgrade owned,toolbox with grow tent
+HC-19,Sample Pack Round,player_interaction,Pay each player 50 Bud Bucks for sample packs.,Current player pays each active player 50,sample packs on table
+HC-20,Consulting Fee,money,Collect 25 Bud Bucks consulting fee.,Collect 25,clipboard and bill
+HC-21,Sold Out Drop,money,Seed drop sells out. Collect 200 Bud Bucks.,Collect 200,sold out sign
+HC-22,Blue Dream Detour,movement,Advance to Blue Dream.,Move player to space 20,blue cloud arrow
+HC-23,Wedding Cake Invite,movement,Advance to Wedding Cake.,Move player to space 27,cake slice arrow
+HC-24,Trim Jail Pass,special,Keep this card: skip one Trim Jail fee.,Held jail-free style card,trim scissors pass card
