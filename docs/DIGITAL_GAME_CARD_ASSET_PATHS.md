@@ -1,0 +1,43 @@
+# Digital game card asset paths
+
+Use these paths in code after binary import:
+
+```json
+{
+  "highChance": [
+    "assets/decks/verified_cards/normalized_cards/high_chance/high_chance_01.png",
+    "assets/decks/verified_cards/normalized_cards/high_chance/high_chance_02.png",
+    "assets/decks/verified_cards/normalized_cards/high_chance/high_chance_03.png",
+    "assets/decks/verified_cards/normalized_cards/high_chance/high_chance_04.png",
+    "assets/decks/verified_cards/normalized_cards/high_chance/high_chance_05.png",
+    "assets/decks/verified_cards/normalized_cards/high_chance/high_chance_06.png",
+    "assets/decks/verified_cards/normalized_cards/high_chance/high_chance_07.png",
+    "assets/decks/verified_cards/normalized_cards/high_chance/high_chance_08.png",
+    "assets/decks/verified_cards/normalized_cards/high_chance/high_chance_09.png",
+    "assets/decks/verified_cards/normalized_cards/high_chance/high_chance_10.png",
+    "assets/decks/verified_cards/normalized_cards/high_chance/high_chance_11.png",
+    "assets/decks/verified_cards/normalized_cards/high_chance/high_chance_12.png",
+    "assets/decks/verified_cards/normalized_cards/high_chance/high_chance_13.png",
+    "assets/decks/verified_cards/normalized_cards/high_chance/high_chance_14.png",
+    "assets/decks/verified_cards/normalized_cards/high_chance/high_chance_15.png"
+  ],
+  "communityStash": [
+    "assets/decks/verified_cards/normalized_cards/community_stash/community_stash_01.png",
+    "assets/decks/verified_cards/normalized_cards/community_stash/community_stash_02.png",
+    "assets/decks/verified_cards/normalized_cards/community_stash/community_stash_03.png",
+    "assets/decks/verified_cards/normalized_cards/community_stash/community_stash_04.png",
+    "assets/decks/verified_cards/normalized_cards/community_stash/community_stash_05.png",
+    "assets/decks/verified_cards/normalized_cards/community_stash/community_stash_06.png",
+    "assets/decks/verified_cards/normalized_cards/community_stash/community_stash_07.png",
+    "assets/decks/verified_cards/normalized_cards/community_stash/community_stash_08.png",
+    "assets/decks/verified_cards/normalized_cards/community_stash/community_stash_09.png",
+    "assets/decks/verified_cards/normalized_cards/community_stash/community_stash_10.png",
+    "assets/decks/verified_cards/normalized_cards/community_stash/community_stash_11.png",
+    "assets/decks/verified_cards/normalized_cards/community_stash/community_stash_12.png",
+    "assets/decks/verified_cards/normalized_cards/community_stash/community_stash_13.png",
+    "assets/decks/verified_cards/normalized_cards/community_stash/community_stash_14.png",
+    "assets/decks/verified_cards/normalized_cards/community_stash/community_stash_15.png",
+    "assets/decks/verified_cards/normalized_cards/community_stash/community_stash_16.png"
+  ]
+}
+```
