@@ -1,0 +1,28 @@
+WEEDOPOLIS APPROVED HIGH CHANCE + COMMUNITY STASH PREFLIGHT AUDIT
+=================================================================
+
+Approved cards processed: 31
+High Chance: 15
+Community Stash: 16
+
+SOURCE SIZE CHECK
+Expected source size: 1097 x 1536 px
+Observed source sizes: ['1097x1536']
+PASS: Every approved card source image is exactly the same pixel size.
+PASS: Every approved source shares the same aspect ratio.
+
+NORMALIZED OUTPUT
+Trim size: 2.5 x 3.5 inches
+Resolution: 600 DPI
+Trim pixels: 1500 x 2100
+Bleed pixels: 1650 x 2250
+Sheet format: US Letter, 6-up front sheets
+
+DISCREPANCY SUMMARY
+- No source dimension discrepancies detected.
+- No aspect-ratio discrepancies detected.
+- Package built from the uploaded approved card images only.
+- No card art was regenerated or text rewritten.
+
+PRODUCTION RULE
+Use the approved card image files only. Do not rebuild this deck from CSV. Do not use the earlier regenerated CSV-card package as a production source.
