@@ -1,0 +1,6 @@
+card_id,card_type,space_number,name,color_group,purchase_price_bud_bucks,mortgage_value_bud_bucks,upgrade_cost_bud_bucks,rent_base,rent_full_set,rent_one_tent,rent_two_tents,rent_three_tents,rent_four_tents,rent_dispensary,asset_id,notes
+DEED-002,strain_property,2,Acapulco Gold,brown,60,30,50,2,4,10,30,90,160,250,CARD-PROPERTY-ACAPULCO-GOLD,Matches board space 2
+DEED-004,strain_property,4,Maui Wowie,brown,60,30,50,4,8,20,60,180,320,450,CARD-PROPERTY-MAUI-WOWIE,Matches board space 4
+DEED-007,strain_property,7,Northern Lights,light_blue,100,50,50,6,12,30,90,270,400,550,CARD-PROPERTY-NORTHERN-LIGHTS,Matches board space 7
+DEED-009,strain_property,9,Jack Herer,light_blue,100,50,50,6,12,30,90,270,400,550,CARD-PROPERTY-JACK-HERER,Matches board space 9
+DEED-010,strain_property,10,Durban Poison,light_blue,120,60,50,8,16,40,100,300,450,600,CARD-PROPERTY-DURBAN-POISON,Matches board space 10
