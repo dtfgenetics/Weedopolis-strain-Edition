@@ -1,0 +1,20 @@
+{
+  "game": "Weedopolis",
+  "space_count": 40,
+  "start_space": 1,
+  "wrap_after_space": 40,
+  "wrap_to_space": 1,
+  "start_reward": 200,
+  "turn_order": [
+    "roll",
+    "move_token",
+    "resolve_landing",
+    "end_turn"
+  ],
+  "randomizer": {
+    "count": 2,
+    "sides": 6,
+    "movement_value": "sum"
+  },
+  "landing_resolution_source": "data/board_map.csv"
+}
