@@ -1,0 +1,6 @@
+{
+  "name": "Bud Bucks",
+  "starting_amount": 1500,
+  "pass_start_award": 200,
+  "bill_values": [1, 5, 10, 20, 50, 100, 500]
+}
