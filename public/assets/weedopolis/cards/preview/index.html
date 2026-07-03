@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weedopolis Card Asset Preview</title>
+  <style>
+    body{margin:0;font-family:system-ui,Arial,sans-serif;background:#f4ecd9;color:#092b1b}header{padding:24px;background:#072d1e;color:#f2d887}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:18px;padding:24px}.card{background:#fffaf0;border:2px solid #0b351f;border-radius:10px;box-shadow:0 4px 14px #0003;overflow:hidden}.card img{display:block;width:100%;height:auto}.meta{padding:10px;display:grid;grid-template-columns:24px 1fr;gap:6px 8px}.swatch{width:20px;height:20px;border:1px solid #222;border-radius:4px}small{grid-column:2;opacity:.75}.missing{padding:10px;color:#7b1b1b;font-weight:700}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Weedopolis Digital Card Asset Preview</h1>
+    <p>Loads the 28-card manifest and displays web-ready card images when image assets are present.</p>
+  </header>
+  <main id="grid" class="grid"></main>
+  <script type="module">
+    import { loadWeedopolisCards } from '../js/card-loader-v2.js';
+    const grid = document.getElementById('grid');
+    const { cards } = await loadWeedopolisCards('/assets/weedopolis/cards');
+    for (const card of cards) {
+      const el = document.createElement('article');
+      el.className = 'card';
+      const swatch = card.colorHex || '#1f4d32';
+      el.innerHTML = `<img src="${card.image}" alt="${card.name}" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'missing',textContent:'Image asset missing: ${card.image}'}))"><div class="meta"><span class="swatch" style="background:${swatch}"></span><strong>${card.name}</strong><small>${card.type} · board ${card.boardPosition ?? 'n/a'}</small></div>`;
+      grid.appendChild(el);
+    }
+  </script>
+</body>
+</html>
