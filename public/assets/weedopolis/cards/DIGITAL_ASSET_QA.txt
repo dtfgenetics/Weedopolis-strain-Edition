@@ -1,0 +1,15 @@
+WEEDOPOLIS DIGITAL GAME ASSET QA
+================================
+
+Total cards: 28
+Properties: 22
+Utilities: 2
+Lines: 4
+
+Dimension check: PASS — every corrected master is 1152 x 1536 px.
+Asset sizes created: 1152x1536 PNG, 768x1024 WebP, 384x512 WebP, 180x240 JPG thumbnail.
+Pricing data: included in JSON manifest.
+Board position mapping: included in JSON manifest.
+Property colors: included as board-sampled hex values.
+
+Board-position correction: Grow Lights set to board position 13 based on board map.
