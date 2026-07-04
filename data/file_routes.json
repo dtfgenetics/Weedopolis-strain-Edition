@@ -1,0 +1,7 @@
+{
+  "roots": {
+    "masters": "assets/source-approved",
+    "web": "assets/web-optimized",
+    "print": "assets/print-ready"
+  }
+}
