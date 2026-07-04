@@ -9,7 +9,13 @@ Lines: 4
 Dimension check: PASS — every corrected master is 1152 x 1536 px.
 Asset sizes created: 1152x1536 PNG, 768x1024 WebP, 384x512 WebP, 180x240 JPG thumbnail.
 Pricing data: included in JSON manifest.
-Board position mapping: included in JSON manifest.
+Board position mapping: included in JSON manifest and correction overlay.
 Property colors: included as board-sampled hex values.
 
-Board-position correction: Grow Lights set to board position 13 based on board map.
+Corrections applied by loader:
+- Green Crack maps to board position 18.
+- OG Kush maps to board position 38 with purchase 350.
+- Permanent Marker maps to board position 40 with purchase 400.
+- Premium Line display names are Indica, Sativa, Hybrid, and Autoflower.
+- Grow Lights remains board position 13.
+- Water Works remains board position 29.
