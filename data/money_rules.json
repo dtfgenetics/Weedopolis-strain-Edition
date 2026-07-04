@@ -1,0 +1,6 @@
+{
+  "currency": "Bud Bucks",
+  "starting_balance": 1500,
+  "pass_start_award": 200,
+  "denominations": [1, 5, 10, 20, 50, 100, 500]
+}
