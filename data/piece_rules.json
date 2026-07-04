@@ -1,0 +1,7 @@
+{
+  "small_upgrade_piece": "Grow Tent",
+  "large_upgrade_piece": "Dispensary",
+  "small_upgrade_limit_before_large": 4,
+  "build_requires_full_color_group": true,
+  "build_evenly_across_group": true
+}
