@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+}
+
+.weedopolis-app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+button {
+  margin: 6px;
+  padding: 10px 14px;
+}
+
+.log {
+  white-space: pre-wrap;
+  padding: 12px;
+  border: 1px solid #333;
+}
