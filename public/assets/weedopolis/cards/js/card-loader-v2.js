@@ -14,11 +14,28 @@ function applyAssetPathRules(card, rules = {}) {
   };
 }
 
+async function loadCorrections(baseUrl) {
+  try {
+    const res = await fetch(`${baseUrl}/data/weedopolis-card-corrections.json`);
+    if (!res.ok) return {};
+    const data = await res.json();
+    return data.corrections || {};
+  } catch {
+    return {};
+  }
+}
+
+function applyCorrection(card, corrections) {
+  return { ...card, ...(corrections[card.id] || {}) };
+}
+
 export async function loadWeedopolisCards(baseUrl = '/assets/weedopolis/cards') {
   const res = await fetch(`${baseUrl}/data/weedopolis-cards.json`);
   if (!res.ok) throw new Error(`Failed to load card data: ${res.status}`);
   const data = await res.json();
-  const cards = data.cards.map(card => {
+  const corrections = await loadCorrections(baseUrl);
+  const cards = data.cards.map(rawCard => {
+    const card = applyCorrection(rawCard, corrections);
     const assets = applyAssetPathRules(card, data.assetPathRules);
     return {
       ...card,
@@ -29,7 +46,7 @@ export async function loadWeedopolisCards(baseUrl = '/assets/weedopolis/cards') 
       thumb: `${baseUrl}/${assets.thumbnail}`
     };
   });
-  return { ...data, cards };
+  return { ...data, cards, correctionsApplied: Object.keys(corrections).length };
 }
 
 export function getCardByBoardPosition(cards, boardPosition) {
