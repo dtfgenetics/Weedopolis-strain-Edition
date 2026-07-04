@@ -4,6 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "validate:data": "node scripts/validate-data.mjs"
+    "validate:data": "node scripts/validate-data.mjs",
+    "validate:engine": "node scripts/validate-game-engine.mjs",
+    "validate": "npm run validate:data && npm run validate:engine"
   }
 }
