@@ -1,0 +1,4 @@
+space_number,card_type,mortgage,upgrade_cost,rent_base,rent_set,rent_1_tent,rent_2_tents,rent_3_tents,rent_4_tents,rent_top
+12,strain_property,70,100,10,20,50,150,450,625,750
+14,strain_property,70,100,10,20,50,150,450,625,750
+15,strain_property,80,100,12,24,60,180,500,700,900
