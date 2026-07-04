@@ -1,10 +1,12 @@
 import { createLobby, addLobbyPlayer, setReady } from '../state/lobby.js';
 import { startGame } from '../state/turn.js';
+import { rollTwo } from '../rules/randomizer.js';
+import { moveCurrentPlayer } from '../state/game-actions.js';
 
-export function createLocalActions(store) {
+export function createLocalActions(store, options = {}) {
   return {
     createGame(hostName = 'Host') {
-      return store.setState(createLobby({ hostName }));
+      return store.setState(createLobby({ hostName, baseUrl: options.baseUrl }));
     },
     joinGame(name = 'Player') {
       const state = store.getState();
@@ -16,6 +18,16 @@ export function createLocalActions(store) {
     },
     start() {
       return store.setState(startGame(store.getState()));
+    },
+    roll(random = Math.random) {
+      const state = store.getState();
+      const result = rollTwo(random);
+      return store.setState({ ...state, dice: result, phase: 'movement' });
+    },
+    move(boardRows) {
+      const state = store.getState();
+      if (!state?.dice) throw new Error('Roll before moving.');
+      return store.setState(moveCurrentPlayer(state, state.dice.total, boardRows));
     }
   };
 }
