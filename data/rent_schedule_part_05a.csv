@@ -1,0 +1,5 @@
+space_number,card_type,mortgage,upgrade_cost,rent_base,rent_set,rent_1_tent,rent_2_tents,rent_3_tents,rent_4_tents,rent_top
+6,line,100,0,25,50,100,200,0,0,0
+16,line,100,0,25,50,100,200,0,0,0
+26,line,100,0,25,50,100,200,0,0,0
+36,line,100,0,25,50,100,200,0,0,0
