@@ -1,0 +1,17 @@
+{
+  "draw_decks": [
+    {
+      "id": "high_chance",
+      "name": "High Chance",
+      "target_card_count": 24,
+      "board_spaces": [8, 23, 37]
+    },
+    {
+      "id": "community_stash",
+      "name": "Community Stash",
+      "target_card_count": 24,
+      "board_spaces": [3, 17, 34]
+    }
+  ],
+  "excluded_decks": ["Harvest Cards", "Pressure Cards"]
+}

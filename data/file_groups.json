@@ -1,0 +1,15 @@
+{
+  "groups": [
+    "board",
+    "board-spaces",
+    "property-cards",
+    "premium-lines",
+    "utilities",
+    "decks/high-chance",
+    "decks/community-stash",
+    "money",
+    "pieces",
+    "dice",
+    "tokens"
+  ]
+}
