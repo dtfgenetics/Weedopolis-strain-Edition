@@ -1,0 +1,2 @@
+Draw set A uses spaces 8 23 37 and has target count 24.
+Draw set B uses spaces 3 17 34 and has target count 24.
