@@ -6,6 +6,7 @@
   "scripts": {
     "validate:data": "node scripts/validate-data.mjs",
     "validate:engine": "node scripts/validate-game-engine.mjs",
-    "validate": "npm run validate:data && npm run validate:engine"
+    "validate:ui": "node scripts/validate-ui-models.mjs",
+    "validate": "npm run validate:data && npm run validate:engine && npm run validate:ui"
   }
 }
