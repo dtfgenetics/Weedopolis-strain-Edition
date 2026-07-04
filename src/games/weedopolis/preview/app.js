@@ -1,17 +1,18 @@
 import { createStore } from '../controller/state-store.js';
 import { createLocalActions } from '../controller/actions.js';
+import { loadPreviewData } from './load-preview-data.js';
 import { renderMenuScreen, renderLobbyScreen } from '../ui/index.js';
 
 const root = document.getElementById('weedopolis-root');
 const store = createStore();
 const actions = createLocalActions(store, { baseUrl: window.location.href.split('?')[0] });
+let boardRows = [];
 
-const sampleBoard = [
-  { space_number: '1', space_name: 'Start Session', space_type: 'corner' },
-  { space_number: '2', space_name: 'Acapulco Gold', space_type: 'property', purchase_price_bud_bucks: '60', rent_base: '2' },
-  { space_number: '3', space_name: 'Community Stash', space_type: 'card' },
-  { space_number: '4', space_name: 'Maui Wowie', space_type: 'property', purchase_price_bud_bucks: '60', rent_base: '4' }
-];
+async function boot() {
+  const data = await loadPreviewData();
+  boardRows = data.boardRows;
+  render();
+}
 
 function render() {
   const state = store.getState();
@@ -20,29 +21,23 @@ function render() {
     return;
   }
   renderLobbyScreen(root, state);
-  appendControls(state);
+  appendControls();
   appendLog(state);
 }
 
-function appendControls(state) {
+function appendControls() {
   const panel = document.createElement('section');
   panel.className = 'panel';
-
-  const ready = document.createElement('button');
-  ready.textContent = 'Ready All';
-  ready.dataset.action = 'ready-all';
-  panel.appendChild(ready);
-
-  const roll = document.createElement('button');
-  roll.textContent = 'Roll Dice';
-  roll.dataset.action = 'roll-dice';
-  panel.appendChild(roll);
-
-  const move = document.createElement('button');
-  move.textContent = 'Move Current Player';
-  move.dataset.action = 'move-player';
-  panel.appendChild(move);
-
+  for (const item of [
+    ['ready-all', 'Ready All'],
+    ['roll-dice', 'Roll Dice'],
+    ['move-player', 'Move Current Player']
+  ]) {
+    const control = document.createElement('button');
+    control.textContent = item[1];
+    control.dataset.action = item[0];
+    panel.appendChild(control);
+  }
   root.appendChild(panel);
 }
 
@@ -64,8 +59,8 @@ root.addEventListener('click', (event) => {
     actions.start();
   }
   if (action === 'roll-dice') actions.roll();
-  if (action === 'move-player') actions.move(sampleBoard);
+  if (action === 'move-player') actions.move(boardRows);
   render();
 });
 
-render();
+boot();
