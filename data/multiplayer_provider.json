@@ -1,0 +1,25 @@
+{
+  "preferred_provider": "wordpress_rest_polling",
+  "reason": "Uses the existing WordPress website, hosting, and MySQL database without Supabase or another external realtime service.",
+  "transport": "wordpress_rest_api",
+  "sync_mode": "polling",
+  "poll_interval_ms": 1500,
+  "rest_namespace": "weedopolis/v1",
+  "tables": [
+    "weedopolis_rooms",
+    "weedopolis_players",
+    "weedopolis_game_states",
+    "weedopolis_events"
+  ],
+  "required_endpoints": [
+    "POST /rooms",
+    "POST /rooms/{code}/join",
+    "GET /rooms/{code}",
+    "POST /rooms/{code}/player",
+    "POST /rooms/{code}/action",
+    "GET /rooms/{code}/events"
+  ],
+  "external_provider_status": {
+    "supabase": "not_preferred_for_current_site_plan"
+  }
+}
