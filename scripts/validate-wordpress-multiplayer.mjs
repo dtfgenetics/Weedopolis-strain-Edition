@@ -24,7 +24,9 @@ assert(rest.includes('/state'));
 
 const schema = fs.readFileSync('wordpress-plugin/weedopolis-multiplayer/includes/schema.php', 'utf8');
 for (const table of ['rooms', 'players', 'game_states', 'events']) {
-  assert(schema.includes(`weedopolis_${table}`));
+  assert(schema.includes(`'${table}'`));
 }
+assert(schema.includes('dbDelta'));
+assert(schema.includes('weedopolis_mp_table'));
 
 console.log('wordpress multiplayer validation passed');
