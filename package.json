@@ -9,6 +9,7 @@
     "validate:ui": "node scripts/validate-ui-models.mjs",
     "validate:controller": "node scripts/validate-local-controller.mjs",
     "check:preview": "node scripts/validate-playable-preview.mjs",
+    "check:online": "node scripts/validate-online-multiplayer.mjs",
     "validate": "npm run validate:data && npm run validate:engine && npm run validate:ui && npm run validate:controller"
   }
 }

@@ -1,0 +1,41 @@
+{
+  "provider": "supabase_realtime_first",
+  "room": {
+    "room_id": "string",
+    "invite_code": "string",
+    "invite_url": "string",
+    "host_player_id": "string",
+    "status": "lobby|active|complete|expired",
+    "max_players": "number",
+    "created_at": "timestamp",
+    "updated_at": "timestamp",
+    "expires_at": "timestamp"
+  },
+  "player": {
+    "player_id": "string",
+    "room_id": "string",
+    "display_name": "string",
+    "token": "string|null",
+    "color": "string|null",
+    "is_host": "boolean",
+    "ready": "boolean",
+    "connected": "boolean",
+    "last_seen_at": "timestamp"
+  },
+  "game_state": {
+    "room_id": "string",
+    "state_version": "number",
+    "phase": "string",
+    "current_player_id": "string|null",
+    "state_json": "object",
+    "updated_at": "timestamp"
+  },
+  "event": {
+    "event_id": "string",
+    "room_id": "string",
+    "player_id": "string|null",
+    "event_type": "string",
+    "payload_json": "object",
+    "created_at": "timestamp"
+  }
+}
