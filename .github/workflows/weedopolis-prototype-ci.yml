@@ -1,0 +1,46 @@
+name: Weedopolis Prototype CI
+
+on:
+  pull_request:
+    branches:
+      - digital-weedopolis-prototype
+    paths:
+      - digital/weedopolis-web/**
+      - .github/workflows/weedopolis-prototype-ci.yml
+  push:
+    branches:
+      - digital-weedopolis-prototype
+    paths:
+      - digital/weedopolis-web/**
+      - .github/workflows/weedopolis-prototype-ci.yml
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate Weedopolis data, engine, UI contract, and public shell
+        run: node digital/weedopolis-web/validate-prototype.mjs
+
+      - name: Confirm required browser files exist
+        shell: bash
+        run: |
+          set -euo pipefail
+          for file in \
+            index.html \
+            styles.css \
+            js/weedopolis-edition.js \
+            js/weedopolis-engine.js \
+            js/weedopolis-ui.js \
+            js/weedopolis-tests.js; do
+            test -s "digital/weedopolis-web/$file"
+          done
