@@ -48,6 +48,8 @@
     },
 
     log(message) {
+      if (!this.state) return;
+      if (!Array.isArray(this.state.log)) this.state.log = [];
       this.state.log.unshift(message);
       this.state.log = this.state.log.slice(0, 80);
     },
@@ -70,7 +72,8 @@
           communityStash: shuffle(DATA.decks.communityStash)
         },
         discard: { highChance: [], communityStash: [] },
-        bank: { freeParkingPool: 0 }
+        bank: { freeParkingPool: 0 },
+        log: []
       };
       this.log('New Weedopolis game started.');
       this.emit();
