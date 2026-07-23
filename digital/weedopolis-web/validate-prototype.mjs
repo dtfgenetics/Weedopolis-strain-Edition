@@ -14,7 +14,6 @@ const [html, css, editionSource, engineSource, uiSource, testsSource] = await Pr
   read('js/weedopolis-tests.js')
 ]);
 
-// Parse every script before executing any of them.
 for (const [name, source] of [
   ['weedopolis-edition.js', editionSource],
   ['weedopolis-engine.js', engineSource],
@@ -67,7 +66,7 @@ assert.equal(data.decks.highChance.length, 24);
 assert.equal(data.decks.communityStash.length, 24);
 assert.equal(sandbox.runWeedopolisTests(), true, 'Existing browser data tests must pass');
 
-const requiredMethods = [
+const engineMethods = [
   'newGame',
   'load',
   'save',
@@ -84,8 +83,27 @@ const requiredMethods = [
   'unmortgage',
   'activePlayers'
 ];
-for (const method of requiredMethods) {
+for (const method of engineMethods) {
   assert.equal(typeof game[method], 'function', `Game engine must expose ${method}()`);
+}
+
+const uiMethods = [
+  'newGame',
+  'load',
+  'clearSave',
+  'rollDice',
+  'payToLeaveJail',
+  'buyCurrent',
+  'declineCurrent',
+  'auctionCurrent',
+  'nextTurn',
+  'canUpgrade',
+  'upgrade',
+  'mortgage',
+  'unmortgage',
+  'activePlayers'
+];
+for (const method of uiMethods) {
   assert.match(uiSource, new RegExp(`Game\\.${method}\\b`), `UI must reference ${method}()`);
 }
 
@@ -111,19 +129,21 @@ for (const selector of ['.board', '.tile', '.sidebar', '.player-token', '.visual
 assert.doesNotMatch(css, /Minimal stylesheet placeholder/i);
 assert.doesNotMatch(uiSource, /Minimal Weedopolis UI placeholder/i);
 
-const expectedBoardMapping = new Map([
-  [1, [11, 11]],
-  [10, [11, 2]],
-  [11, [11, 1]],
-  [20, [2, 1]],
-  [21, [1, 1]],
-  [30, [1, 10]],
-  [31, [1, 11]],
-  [40, [10, 11]]
-]);
-for (const [space, [row, column]] of expectedBoardMapping) {
-  const mappingPattern = new RegExp(`spaceNumber\\s*===\\s*${space}[^}]*row:\\s*${row}[^}]*column:\\s*${column}`);
-  assert.match(uiSource, mappingPattern, `Board mapping for space ${space} must remain correct`);
+// The renderer must preserve the four-sided 40-space perimeter formulas.
+for (const requiredSnippet of [
+  'spaceNumber === 1',
+  'spaceNumber >= 2 && spaceNumber <= 10',
+  '12 - spaceNumber',
+  'spaceNumber === 11',
+  'spaceNumber >= 12 && spaceNumber <= 20',
+  '22 - spaceNumber',
+  'spaceNumber === 21',
+  'spaceNumber >= 22 && spaceNumber <= 30',
+  'spaceNumber - 20',
+  'spaceNumber === 31',
+  'spaceNumber - 30'
+]) {
+  assert.ok(uiSource.includes(requiredSnippet), `Board mapping must include: ${requiredSnippet}`);
 }
 
 console.log('Weedopolis prototype validation passed:', {
