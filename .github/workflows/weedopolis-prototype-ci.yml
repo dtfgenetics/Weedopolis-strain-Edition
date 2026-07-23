@@ -1,0 +1,75 @@
+name: Weedopolis Prototype CI
+
+on:
+  pull_request:
+    branches:
+      - digital-weedopolis-prototype
+    paths:
+      - digital/weedopolis-web/**
+      - .github/workflows/weedopolis-prototype-ci.yml
+  push:
+    branches:
+      - digital-weedopolis-prototype
+    paths:
+      - digital/weedopolis-web/**
+      - .github/workflows/weedopolis-prototype-ci.yml
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate Weedopolis data, engine, UI contract, and public shell
+        id: prototype_validation
+        shell: bash
+        run: |
+          set +e
+          node digital/weedopolis-web/validate-prototype.mjs > validation.log 2>&1
+          status=$?
+          cat validation.log
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Report concise validation failure
+        if: github.event_name == 'pull_request' && steps.prototype_validation.outputs.status != '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const output = fs.readFileSync('validation.log', 'utf8').trim();
+            const clipped = output.length > 6000 ? output.slice(-6000) : output;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `## Weedopolis prototype validation failed\n\n\`\`\`text\n${clipped}\n\`\`\``
+            });
+
+      - name: Fail when prototype validation failed
+        if: steps.prototype_validation.outputs.status != '0'
+        run: exit 1
+
+      - name: Confirm required browser files exist
+        shell: bash
+        run: |
+          set -euo pipefail
+          for file in \
+            index.html \
+            styles.css \
+            js/weedopolis-edition.js \
+            js/weedopolis-engine.js \
+            js/weedopolis-ui.js \
+            js/weedopolis-tests.js; do
+            test -s "digital/weedopolis-web/$file"
+          done
