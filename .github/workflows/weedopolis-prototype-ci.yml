@@ -16,6 +16,8 @@ on:
 
 permissions:
   contents: read
+  issues: write
+  pull-requests: write
 
 jobs:
   validate:
@@ -29,7 +31,34 @@ jobs:
           node-version: 22
 
       - name: Validate Weedopolis data, engine, UI contract, and public shell
-        run: node digital/weedopolis-web/validate-prototype.mjs
+        id: prototype_validation
+        shell: bash
+        run: |
+          set +e
+          node digital/weedopolis-web/validate-prototype.mjs > validation.log 2>&1
+          status=$?
+          cat validation.log
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Report concise validation failure
+        if: github.event_name == 'pull_request' && steps.prototype_validation.outputs.status != '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const output = fs.readFileSync('validation.log', 'utf8').trim();
+            const clipped = output.length > 6000 ? output.slice(-6000) : output;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `## Weedopolis prototype validation failed\n\n\`\`\`text\n${clipped}\n\`\`\``
+            });
+
+      - name: Fail when prototype validation failed
+        if: steps.prototype_validation.outputs.status != '0'
+        run: exit 1
 
       - name: Confirm required browser files exist
         shell: bash
