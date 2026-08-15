@@ -1,0 +1,46 @@
+name: Weedopolis Production Preview CI
+
+on:
+  pull_request:
+    paths:
+      - public/weedopolis-preview/**
+      - src/games/weedopolis/**
+      - scripts/**
+      - package.json
+      - .github/workflows/production-preview-ci.yml
+  push:
+    branches:
+      - main
+    paths:
+      - public/weedopolis-preview/**
+      - src/games/weedopolis/**
+      - scripts/**
+      - package.json
+      - .github/workflows/production-preview-ci.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate game data and engine
+        run: npm run validate
+      - name: Validate production preview and SEO fallback
+        run: npm run check:preview
+      - name: Verify deployable files
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s public/weedopolis-preview/index.html
+          test -s public/weedopolis-preview/style.css
+          test -s src/games/weedopolis/preview/app.js
+          grep -Fq 'https://dtfseeds.com/games/weedopolis/' public/weedopolis-preview/index.html
+          grep -Fq '<h1' public/weedopolis-preview/index.html
