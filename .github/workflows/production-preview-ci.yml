@@ -5,6 +5,7 @@ on:
     paths:
       - public/weedopolis-preview/**
       - src/games/weedopolis/**
+      - data/board_map.csv
       - scripts/**
       - package.json
       - .github/workflows/production-preview-ci.yml
@@ -14,6 +15,7 @@ on:
     paths:
       - public/weedopolis-preview/**
       - src/games/weedopolis/**
+      - data/board_map.csv
       - scripts/**
       - package.json
       - .github/workflows/production-preview-ci.yml
@@ -35,12 +37,23 @@ jobs:
         run: npm run validate
       - name: Validate production preview and SEO fallback
         run: npm run check:preview
-      - name: Verify deployable files
+      - name: Build self-contained production preview
+        run: npm run build:preview
+      - name: Verify deployable output
         shell: bash
         run: |
           set -euo pipefail
-          test -s public/weedopolis-preview/index.html
-          test -s public/weedopolis-preview/style.css
-          test -s src/games/weedopolis/preview/app.js
-          grep -Fq 'https://dtfseeds.com/games/weedopolis/' public/weedopolis-preview/index.html
-          grep -Fq '<h1' public/weedopolis-preview/index.html
+          test -s dist/weedopolis/index.html
+          test -s dist/weedopolis/style.css
+          test -s dist/weedopolis/src/games/weedopolis/preview/app.js
+          test -s dist/weedopolis/data/board_map.csv
+          grep -Fq 'https://dtfseeds.com/games/weedopolis/' dist/weedopolis/index.html
+          grep -Fq '<h1' dist/weedopolis/index.html
+          grep -Fq 'src="./src/games/weedopolis/preview/app.js"' dist/weedopolis/index.html
+      - name: Upload deployable artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: weedopolis-${{ github.sha }}
+          path: dist/weedopolis
+          if-no-files-found: error
+          retention-days: 14
