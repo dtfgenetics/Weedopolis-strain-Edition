@@ -1,0 +1,44 @@
+{
+  "source": "data/board_map.csv",
+  "corrections": {
+    "green-crack": {
+      "boardPosition": 18
+    },
+    "og-kush": {
+      "boardPosition": 38,
+      "purchase": 350,
+      "rent": 35,
+      "fullSet": 70,
+      "oneTent": 175,
+      "twoTents": 500,
+      "threeTents": 1100,
+      "fourTents": 1300,
+      "dispensary": 1500,
+      "stashValue": 175
+    },
+    "permanent-marker": {
+      "boardPosition": 40,
+      "purchase": 400,
+      "rent": 50,
+      "fullSet": 100,
+      "oneTent": 200,
+      "twoTents": 600,
+      "threeTents": 1400,
+      "fourTents": 1700,
+      "dispensary": 2000,
+      "stashValue": 200
+    },
+    "indica-line": {
+      "name": "Indica"
+    },
+    "sativa-line": {
+      "name": "Sativa"
+    },
+    "hybrid-line": {
+      "name": "Hybrid"
+    },
+    "autoflower-line": {
+      "name": "Autoflower"
+    }
+  }
+}
