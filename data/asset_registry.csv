@@ -18,10 +18,10 @@ ICON-001,icons,22 strain icons,needed,critical,SVG/PNG,Unified simple high-contr
 ICON-002,icons,Category/utility/tax icons,needed,high,SVG/PNG,Consistent support icon set
 DEED-001,deed-cards,Property deed template,needed,critical,SVG/PNG/PDF,Used for all strain property cards
 DEED-002,deed-cards,28 deed cards,needed,critical,PNG/PDF,22 strain + 4 category + 2 utility deeds
-DECK-001,High Chance,High Chance front/back templates,needed,critical,SVG/PNG,Card design system
-DECK-002,High Chance,24-card High Chance deck,needed,critical,CSV/JSON/PDF,Rules-balanced actions and print sheet
-DECK-003,Community Stash,Community Stash front/back templates,needed,critical,SVG/PNG,Card design system
-DECK-004,Community Stash,24-card Community Stash deck,needed,critical,CSV/JSON/PDF,Rules-balanced actions and print sheet
+DECK-001,High Chance,High Chance approved visual card sources,verified,critical,PNG,15 approved High Chance cards uploaded and verified; do not regenerate from CSV
+DECK-002,High Chance,High Chance print package,verified,critical,PNG/CSV/TXT,Verified normalized 2.5x3.5in 600DPI assets and 6-up print sheets in assets/decks/verified_cards
+DECK-003,Community Stash,Community Stash approved visual card sources,verified,critical,PNG,16 approved Community Stash cards uploaded and verified; do not regenerate from CSV
+DECK-004,Community Stash,Community Stash print package,verified,critical,PNG/CSV/TXT,Verified normalized 2.5x3.5in 600DPI assets and 6-up print sheets in assets/decks/verified_cards
 MONEY-001,money,Bud Bucks bill set,needed,high,SVG/PNG/PDF,1/5/10/20/50/100/500 denominations
 TOKEN-001,tokens,Player token set,needed,medium,SVG/PNG/STL,6-8 player tokens
 TOKEN-002,tokens,Grow Tent pieces,needed,high,SVG/PNG/STL,House replacement
