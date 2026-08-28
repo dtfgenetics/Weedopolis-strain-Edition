@@ -3,6 +3,7 @@ import fs from 'node:fs';
 
 const html = fs.readFileSync('public/weedopolis-preview/index.html', 'utf8');
 const app = fs.readFileSync('src/games/weedopolis/preview/app.js', 'utf8');
+const style = fs.readFileSync('public/weedopolis-preview/style.css', 'utf8');
 
 for (const requiredHtml of [
   'weedopolis-root',
@@ -38,5 +39,10 @@ assert(app.includes('createLocalActions'));
 assert(app.includes('createStore'));
 assert(app.includes('renderMenuScreen'));
 assert(app.includes('renderLobbyScreen'));
+assert(app.includes("document.createElement('details')"), 'developer state should be collapsed by default');
+assert(app.includes("summary.textContent = 'Game state details'"));
+assert(style.includes(':focus-visible'), 'preview should expose visible keyboard focus');
+assert(style.includes('min-height: 44px'), 'preview buttons should retain touch-friendly targets');
+assert(style.includes('prefers-reduced-motion'), 'preview should respect reduced motion');
 
 console.log('playable preview validation passed');
