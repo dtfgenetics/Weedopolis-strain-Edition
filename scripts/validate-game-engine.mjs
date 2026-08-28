@@ -23,6 +23,15 @@ assert.equal(resolveLanding({ space_name: 'Compliance Check', space_type: 'corne
 assert.equal(resolveLanding({ space_name: 'High Chance', space_type: 'card' }).action, 'draw_high_chance');
 assert.equal(resolveLanding({ space_name: 'Community Stash', space_type: 'card' }).action, 'draw_community_stash');
 
+let soloLobby = createLobby({ hostName: 'Solo Host' });
+soloLobby = setReady(soloLobby, 'host', true);
+assert.equal(canStart(soloLobby), false);
+assert.throws(() => startGame(soloLobby), /At least two players/);
+assert.throws(
+  () => addLobbyPlayer(soloLobby, { id: 'host', name: 'Duplicate Host' }),
+  /already in the lobby/
+);
+
 let lobby = createLobby({ hostName: 'Host' });
 lobby = addLobbyPlayer(lobby, { id: 'p2', name: 'Player 2' });
 lobby = setReady(lobby, 'host', true);
