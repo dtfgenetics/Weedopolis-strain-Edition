@@ -42,10 +42,18 @@ function appendControls() {
 }
 
 function appendLog(state) {
+  const details = document.createElement('details');
+  details.className = 'state-details';
+
+  const summary = document.createElement('summary');
+  summary.textContent = 'Game state details';
+
   const log = document.createElement('pre');
   log.className = 'log';
   log.textContent = JSON.stringify({ phase: state.phase, dice: state.dice, landing: state.landing, players: state.players }, null, 2);
-  root.appendChild(log);
+
+  details.append(summary, log);
+  root.appendChild(details);
 }
 
 root.addEventListener('click', (event) => {

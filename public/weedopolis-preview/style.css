@@ -1,21 +1,90 @@
-body {
-  margin: 0;
-  font-family: system-ui, Arial, sans-serif;
+:root {
+  color-scheme: dark;
+  --bg: #07120c;
+  --panel: #102319;
+  --line: #35563f;
+  --text: #f5f3e9;
+  --muted: #bac8be;
+  --accent: #dfbd62;
 }
 
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.55;
+  color: var(--text);
+  background: radial-gradient(circle at top, #173523 0, var(--bg) 52%);
+}
+
+a { color: #a9d8b0; }
+
 .weedopolis-app {
-  max-width: 960px;
+  width: min(960px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 24px;
+  padding: 32px 0 64px;
+}
+
+.panel,
+.state-details {
+  margin: 16px 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(16, 35, 25, 0.94);
 }
 
 button {
+  min-height: 44px;
   margin: 6px;
   padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: #173c28;
+  color: var(--text);
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+button:hover { border-color: #6b9877; }
+
+:where(button, a, input, select, summary):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.state-details summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-weight: 750;
 }
 
 .log {
+  max-height: 280px;
+  overflow: auto;
   white-space: pre-wrap;
+  margin: 14px 0 0;
   padding: 12px;
-  border: 1px solid #333;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #050c08;
+  color: #cbd7cf;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 520px) {
+  .weedopolis-app { width: min(100% - 20px, 960px); padding-top: 18px; }
+  button { width: calc(100% - 12px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
