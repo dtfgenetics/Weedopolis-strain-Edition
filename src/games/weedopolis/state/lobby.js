@@ -18,6 +18,9 @@ export function createLobby({ hostName = 'Host', baseUrl } = {}) {
 
 export function addLobbyPlayer(lobby, input) {
   const player = createPlayer(input);
+  if (lobby.players.some((existing) => existing.id === player.id)) {
+    throw new Error('A player with this ID is already in the lobby.');
+  }
   return {
     ...lobby,
     players: [...lobby.players, player],
