@@ -1,9 +1,9 @@
 export function canStart(lobby) {
-  return lobby.players.length > 0 && lobby.players.every((player) => player.ready);
+  return lobby.players.length >= 2 && lobby.players.every((player) => player.ready);
 }
 
 export function startGame(lobby) {
-  if (!canStart(lobby)) throw new Error('All players must be ready before starting.');
+  if (!canStart(lobby)) throw new Error('At least two players must be ready before starting.');
   return {
     ...lobby,
     phase: 'turn_start',
