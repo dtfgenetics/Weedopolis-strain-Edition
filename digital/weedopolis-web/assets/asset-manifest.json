@@ -1,9 +1,11 @@
 {
   "game": "Weedopolis: Strain City Edition",
-  "status": "placeholder_manifest_ready_for_approved_assets",
+  "status": "approved_v1_board_integrated_remaining_component_assets_pending",
   "board": {
-    "blank_board_base": "assets/board/blank-board-base.png",
-    "assembled_board": "assets/board/weedopolis-board-final.png"
+    "version": "V1",
+    "layout": "classic 40-space square board",
+    "source_status": "approved master board",
+    "assembled_board": "assets/board/weedopolis-master-board.webp"
   },
   "spaces": {
     "source": "../../data/board_map.csv",
@@ -13,7 +15,8 @@
   "deeds": {
     "source_folder": "assets/property-cards/",
     "expected_count": 28,
-    "includes": ["22 strain deeds", "4 category deeds", "2 utility deeds"]
+    "includes": ["22 strain deeds", "4 category deeds", "2 utility deeds"],
+    "status": "approved source files confirmed; web binary import still pending"
   },
   "decks": {
     "high_chance_source": "../../data/high_chance_cards.csv",
@@ -21,11 +24,13 @@
     "high_chance_front": "assets/cards/high-chance-front.png",
     "high_chance_back": "assets/cards/high-chance-back.png",
     "community_stash_front": "assets/cards/community-stash-front.png",
-    "community_stash_back": "assets/cards/community-stash-back.png"
+    "community_stash_back": "assets/cards/community-stash-back.png",
+    "status": "approved source files confirmed; web binary import still pending"
   },
   "money": {
     "source_folder": "assets/money/",
-    "denominations": [1, 5, 10, 20, 50, 100, 500]
+    "denominations": [1, 5, 10, 20, 50, 100, 500],
+    "status": "approved source files confirmed; web binary import still pending"
   },
   "tokens": {
     "source_folder": "assets/tokens/",
