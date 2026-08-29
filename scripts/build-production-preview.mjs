@@ -1,27 +1,14 @@
-import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
-import { dirname, join } from 'node:path';
+import { cp, mkdir, rm } from 'node:fs/promises';
 
 const outputRoot = 'dist/weedopolis';
+const sourceRoot = 'digital/weedopolis-web';
 
 await rm(outputRoot, { recursive: true, force: true });
 await mkdir(outputRoot, { recursive: true });
 
-// Copy the public shell.
-await cp('public/weedopolis-preview/style.css', join(outputRoot, 'style.css'));
-let html = await readFile('public/weedopolis-preview/index.html', 'utf8');
-html = html.replace(
-  'src="../../src/games/weedopolis/preview/app.js"',
-  'src="./src/games/weedopolis/preview/app.js"'
-);
-await writeFile(join(outputRoot, 'index.html'), html, 'utf8');
+// Ship the recovered full browser prototype instead of the lightweight
+// menu/lobby preview. The DTFSeeds public-suite workflow publishes everything
+// in dist/weedopolis to https://dtfseeds.com/games/weedopolis/.
+await cp(sourceRoot, outputRoot, { recursive: true });
 
-// Preserve the module tree so native browser ESM imports continue to work.
-const gameSourceTarget = join(outputRoot, 'src/games/weedopolis');
-await mkdir(dirname(gameSourceTarget), { recursive: true });
-await cp('src/games/weedopolis', gameSourceTarget, { recursive: true });
-
-// Copy only the production data needed by the browser preview.
-await mkdir(join(outputRoot, 'data'), { recursive: true });
-await cp('data/board_map.csv', join(outputRoot, 'data/board_map.csv'));
-
-console.log(`Built self-contained Weedopolis preview at ${outputRoot}`);
+console.log(`Built playable Weedopolis web game from ${sourceRoot} at ${outputRoot}`);

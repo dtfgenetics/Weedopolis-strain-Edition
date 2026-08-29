@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weedopolis: Strain City Edition | DTF Genetics</title>
+  <meta
+    name="description"
+    content="Play the Weedopolis: Strain City Edition development build, an original adult cannabis-themed property-trading game from DTF Genetics."
+  />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#173f2a" />
+  <link rel="canonical" href="https://dtfseeds.com/games/weedopolis/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DTF Genetics" />
+  <meta property="og:title" content="Weedopolis: Strain City Edition" />
+  <meta
+    property="og:description"
+    content="An original adult cannabis-themed property-trading game from DTF Genetics. Build strain districts, trade, upgrade, and compete for the strongest city."
+  />
+  <meta property="og:url" content="https://dtfseeds.com/games/weedopolis/" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Weedopolis: Strain City Edition" />
+  <meta
+    name="twitter:description"
+    content="Play the adult cannabis-themed property-trading development build from DTF Genetics."
+  />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      "name": "Weedopolis: Strain City Edition",
+      "url": "https://dtfseeds.com/games/weedopolis/",
+      "description": "An original adult cannabis-themed property-trading browser game from DTF Genetics.",
+      "applicationCategory": "Game",
+      "operatingSystem": "Modern web browser",
+      "isAccessibleForFree": true,
+      "numberOfPlayers": {
+        "@type": "QuantitativeValue",
+        "minValue": 2,
+        "maxValue": 8
+      },
+      "audience": {
+        "@type": "PeopleAudience",
+        "suggestedMinAge": 18
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "DTF Genetics",
+        "url": "https://dtfseeds.com/"
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">Playable development build</p>
+      <h1>Weedopolis</h1>
+      <p>Strain City Edition</p>
+      <p>
+        An original 2–8 player property-trading game built around strain districts,
+        Bud Bucks, Grow Tents, Dispensaries, High Chance, and Community Stash.
+      </p>
+      <p><a href="https://dtfseeds.com/games/">Return to the DTF Game Hub</a></p>
+    </div>
+    <div class="header-actions">
+      <button id="loadGameBtn" type="button">Load Saved Game</button>
+      <button id="newGameTopBtn" type="button">New Game</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section id="setupPanel" class="panel setup-panel">
+      <h2>Start a game</h2>
+      <p>Enter 2–8 player names.</p>
+      <div class="player-name-grid" id="playerNameGrid"></div>
+      <button id="startGameBtn" type="button" class="primary">Start Session</button>
+    </section>
+
+    <section class="board-wrap" aria-labelledby="weedopolis-board-title">
+      <h2 id="weedopolis-board-title" class="visually-hidden">Weedopolis game board</h2>
+      <div id="board" class="board" aria-label="Weedopolis board"></div>
+    </section>
+
+    <aside class="sidebar" aria-label="Game information and controls">
+      <section class="panel"><h2>Turn</h2><div id="turnPanel"></div></section>
+      <section class="panel"><h2>Players</h2><div id="playersPanel"></div></section>
+      <section class="panel"><h2>Manage</h2><div id="managePanel"></div></section>
+      <section class="panel"><h2>Game log</h2><ol id="logPanel" class="log"></ol></section>
+    </aside>
+  </main>
+
+  <noscript>
+    <p>Weedopolis requires JavaScript to run. Enable JavaScript and reload the page.</p>
+  </noscript>
+
+  <script src="js/weedopolis-edition.js"></script>
+  <script src="js/weedopolis-engine.js"></script>
+  <script src="js/weedopolis-ui.js"></script>
+  <script src="js/weedopolis-tests.js"></script>
+</body>
+</html>

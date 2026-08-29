@@ -1,0 +1,41 @@
+{
+  "game": "Weedopolis: Strain City Edition",
+  "status": "placeholder_manifest_ready_for_approved_assets",
+  "board": {
+    "blank_board_base": "assets/board/blank-board-base.png",
+    "assembled_board": "assets/board/weedopolis-board-final.png"
+  },
+  "spaces": {
+    "source": "../../data/board_map.csv",
+    "expected_count": 40,
+    "orientation_rule": "bottom faces bottom, left faces left, top faces top, right faces right"
+  },
+  "deeds": {
+    "source_folder": "assets/property-cards/",
+    "expected_count": 28,
+    "includes": ["22 strain deeds", "4 category deeds", "2 utility deeds"]
+  },
+  "decks": {
+    "high_chance_source": "../../data/high_chance_cards.csv",
+    "community_stash_source": "../../data/community_stash_cards.csv",
+    "high_chance_front": "assets/cards/high-chance-front.png",
+    "high_chance_back": "assets/cards/high-chance-back.png",
+    "community_stash_front": "assets/cards/community-stash-front.png",
+    "community_stash_back": "assets/cards/community-stash-back.png"
+  },
+  "money": {
+    "source_folder": "assets/money/",
+    "denominations": [1, 5, 10, 20, 50, 100, 500]
+  },
+  "tokens": {
+    "source_folder": "assets/tokens/",
+    "player_token_count_target": 8,
+    "grow_tent_piece": "assets/tokens/grow-tent.png",
+    "dispensary_piece": "assets/tokens/dispensary.png"
+  },
+  "icons": {
+    "source_folder": "assets/icons/",
+    "strain_icon_count_target": 22,
+    "support_icon_count_target": 14
+  }
+}
