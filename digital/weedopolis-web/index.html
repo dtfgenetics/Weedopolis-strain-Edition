@@ -6,7 +6,7 @@
   <title>Weedopolis: Strain City Edition | DTF Genetics</title>
   <meta
     name="description"
-    content="Play the Weedopolis: Strain City Edition development build, an original adult cannabis-themed property-trading game from DTF Genetics."
+    content="Play Weedopolis: Strain City Edition, an original adult cannabis-themed property-trading game from DTF Genetics."
   />
   <meta name="robots" content="index,follow,max-image-preview:large" />
   <meta name="theme-color" content="#173f2a" />
@@ -25,7 +25,7 @@
   <meta name="twitter:title" content="Weedopolis: Strain City Edition" />
   <meta
     name="twitter:description"
-    content="Play the adult cannabis-themed property-trading development build from DTF Genetics."
+    content="Play the adult cannabis-themed property-trading game from DTF Genetics."
   />
 
   <script type="application/ld+json">
@@ -56,6 +56,7 @@
   </script>
 
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="approved-assets.css" />
 </head>
 <body>
   <header class="app-header">
@@ -85,7 +86,17 @@
 
     <section class="board-wrap" aria-labelledby="weedopolis-board-title">
       <h2 id="weedopolis-board-title" class="visually-hidden">Weedopolis game board</h2>
-      <div id="board" class="board" aria-label="Weedopolis board"></div>
+      <figure class="approved-board-panel">
+        <img
+          src="assets/board/weedopolis-master-board.webp"
+          width="384"
+          height="384"
+          alt="Approved Weedopolis Strain City Edition classic 40-space master board"
+          decoding="async"
+        />
+        <figcaption><strong>Approved Weedopolis V1 master board.</strong> The interactive gameplay board and player controls are directly below.</figcaption>
+      </figure>
+      <div id="board" class="board" aria-label="Interactive Weedopolis board"></div>
     </section>
 
     <aside class="sidebar" aria-label="Game information and controls">
