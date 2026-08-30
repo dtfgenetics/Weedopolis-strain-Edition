@@ -102,10 +102,10 @@
       <section id="propertySection" class="panel parchment-panel property-management-card">
         <div class="panel-heading">
           <h2>Property / Management</h2>
-          <span class="asset-chip">V1 deed slot</span>
+          <span class="asset-chip" id="propertyAssetChip">Verified V1 deed mapping</span>
         </div>
-        <div class="property-art-slot" data-art-status="v1-deed-mapping-in-progress" aria-hidden="true">
-          <span>Verified V1 deed artwork</span>
+        <div class="property-art-slot" id="propertyArtSlot" data-art-status="verified-master-mapped" role="img" aria-label="Selected verified Weedopolis deed artwork">
+          <span id="propertyArtFallback">Select a property</span>
         </div>
         <div id="managePanel"></div>
       </section>
@@ -132,6 +132,7 @@
 
   <script src="js/weedopolis-edition.js"></script>
   <script src="js/weedopolis-master-overrides.js"></script>
+  <script src="js/weedopolis-assets.js"></script>
   <script src="js/weedopolis-engine.js"></script>
   <script src="js/weedopolis-ui.js"></script>
   <script src="js/weedopolis-tests.js"></script>
