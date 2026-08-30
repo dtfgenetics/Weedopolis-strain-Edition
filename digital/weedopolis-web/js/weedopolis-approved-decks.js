@@ -175,13 +175,19 @@
     textCard.before(figure);
   }
 
-  window.addEventListener('DOMContentLoaded', function () {
-    const turnPanel = document.getElementById('turnPanel');
-    if (!turnPanel) return;
-    const observer = new MutationObserver(syncPendingCardArt);
-    observer.observe(turnPanel, { childList: true, subtree: true });
-    syncPendingCardArt();
-  });
+  if (
+    typeof window.addEventListener === 'function' &&
+    typeof document !== 'undefined' &&
+    typeof MutationObserver !== 'undefined'
+  ) {
+    window.addEventListener('DOMContentLoaded', function () {
+      const turnPanel = document.getElementById('turnPanel');
+      if (!turnPanel) return;
+      const observer = new MutationObserver(syncPendingCardArt);
+      observer.observe(turnPanel, { childList: true, subtree: true });
+      syncPendingCardArt();
+    });
+  }
 
   window.WEEDOPOLIS_APPROVED_DECKS = {
     version: 'approved-physical-masters-v1',
