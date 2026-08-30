@@ -59,7 +59,7 @@
     </div>
   </header>
 
-  <main class="game-shell" data-ui-standard="premium-responsive-shell-v1">
+  <main class="game-shell" data-ui-standard="premium-responsive-shell-v1" data-art-standard="weedopolis-v1-master">
     <section id="setupPanel" class="panel setup-panel parchment-panel">
       <p class="section-kicker">New Session</p>
       <h1>Start Weedopolis</h1>
@@ -71,13 +71,13 @@
     <section class="play-stage" aria-labelledby="weedopolis-board-title">
       <h2 id="weedopolis-board-title" class="visually-hidden">Weedopolis game board</h2>
 
-      <div class="board-frame" data-art-status="final-board-pending">
-        <div class="board-art-slot" aria-hidden="true"></div>
-        <div id="board" class="board" aria-label="Interactive Weedopolis board"></div>
+      <div class="board-frame" data-art-status="v1-master-loaded">
+        <div class="board-art-slot" role="img" aria-label="Weedopolis V1 production master board"></div>
+        <div id="board" class="board" aria-label="Interactive Weedopolis board overlay"></div>
       </div>
 
       <p class="asset-status-note">
-        Final board artwork slot is intentionally replaceable. Gameplay geometry and controls are locked to the approved interface structure.
+        Gameplay uses the Weedopolis V1 square-board master as the visual authority. Interactive spaces and tokens are layered over the master artwork.
       </p>
     </section>
 
@@ -101,10 +101,10 @@
       <section id="propertySection" class="panel parchment-panel property-management-card">
         <div class="panel-heading">
           <h2>Property / Management</h2>
-          <span class="asset-chip">Final card art pending</span>
+          <span class="asset-chip">V1 deed slot</span>
         </div>
-        <div class="property-art-slot" data-art-status="final-deeds-pending" aria-hidden="true">
-          <span>Deed artwork</span>
+        <div class="property-art-slot" data-art-status="v1-deed-mapping-in-progress" aria-hidden="true">
+          <span>Verified V1 deed artwork</span>
         </div>
         <div id="managePanel"></div>
       </section>
@@ -130,6 +130,7 @@
   <noscript><p>Weedopolis requires JavaScript to run. Enable JavaScript and reload the page.</p></noscript>
 
   <script src="js/weedopolis-edition.js"></script>
+  <script src="js/weedopolis-master-overrides.js"></script>
   <script src="js/weedopolis-engine.js"></script>
   <script src="js/weedopolis-ui.js"></script>
   <script src="js/weedopolis-tests.js"></script>
