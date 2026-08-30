@@ -1,11 +1,35 @@
 {
   "game": "Weedopolis: Strain City Edition",
-  "status": "approved_v1_board_integrated_remaining_component_assets_pending",
+  "status": "ui_structure_locked_final_visual_assets_pending",
+  "deployment_standard": {
+    "structure_version": "2026-08-29-premium-responsive-shell-v1",
+    "structure_status": "approved",
+    "art_status": "pending final approved masters",
+    "rule": "Preserve the approved desktop/mobile information architecture and interaction hierarchy. Board, deed, deck, currency, token, and decorative artwork remain replaceable until their final approved masters are imported. Do not describe temporary/reference artwork as final or approved."
+  },
+  "layout_contract": {
+    "desktop": [
+      "premium top command bar with Weedopolis identity and Bud Bucks balance",
+      "large board-first play surface",
+      "right rail containing Current Turn, Players, Property / Management, and Game Log",
+      "touch-capable action controls for Roll Dice, End Turn, Buy, Auction, Mortgage, and Upgrade"
+    ],
+    "mobile": [
+      "compact premium command bar",
+      "board-first stacked composition",
+      "Current Turn below board",
+      "Players below Current Turn",
+      "Selected Property / action tray below Players",
+      "compact Game Log",
+      "mobile navigation / action dock"
+    ]
+  },
   "board": {
-    "version": "V1",
+    "version": "V1 classic layout family",
     "layout": "classic 40-space square board",
-    "source_status": "approved master board",
-    "assembled_board": "assets/board/weedopolis-master-board.webp"
+    "source_status": "temporary/reference artwork currently packaged; final approved board master pending",
+    "assembled_board": "assets/board/weedopolis-master-board.webp",
+    "final_asset_ready": false
   },
   "spaces": {
     "source": "../../data/board_map.csv",
@@ -15,8 +39,9 @@
   "deeds": {
     "source_folder": "assets/property-cards/",
     "expected_count": 28,
-    "includes": ["22 strain deeds", "4 category deeds", "2 utility deeds"],
-    "status": "approved source files confirmed; web binary import still pending"
+    "includes": ["22 strain deeds", "4 Premium Line deeds", "2 utility deeds"],
+    "status": "final approved web binaries pending",
+    "final_assets_ready": false
   },
   "decks": {
     "high_chance_source": "../../data/high_chance_cards.csv",
@@ -25,22 +50,26 @@
     "high_chance_back": "assets/cards/high-chance-back.png",
     "community_stash_front": "assets/cards/community-stash-front.png",
     "community_stash_back": "assets/cards/community-stash-back.png",
-    "status": "approved source files confirmed; web binary import still pending"
+    "status": "final approved web binaries pending",
+    "final_assets_ready": false
   },
   "money": {
     "source_folder": "assets/money/",
     "denominations": [1, 5, 10, 20, 50, 100, 500],
-    "status": "approved source files confirmed; web binary import still pending"
+    "status": "final approved web binaries pending",
+    "final_assets_ready": false
   },
   "tokens": {
     "source_folder": "assets/tokens/",
     "player_token_count_target": 8,
     "grow_tent_piece": "assets/tokens/grow-tent.png",
-    "dispensary_piece": "assets/tokens/dispensary.png"
+    "dispensary_piece": "assets/tokens/dispensary.png",
+    "status": "final approved web binaries pending"
   },
   "icons": {
     "source_folder": "assets/icons/",
     "strain_icon_count_target": 22,
-    "support_icon_count_target": 14
+    "support_icon_count_target": 14,
+    "status": "final approved web binaries pending"
   }
 }
