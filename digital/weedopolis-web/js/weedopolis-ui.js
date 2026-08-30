@@ -3,6 +3,7 @@ window.addEventListener('DOMContentLoaded', function () {
   'use strict';
 
   const DATA = window.WEEDOPOLIS_EDITION;
+  const ASSETS = window.WEEDOPOLIS_ASSETS || { bySpaceIndex: {} };
   const Game = window.WeedopolisGame;
 
   const board = document.getElementById('board');
@@ -15,6 +16,12 @@ window.addEventListener('DOMContentLoaded', function () {
   const loadButton = document.getElementById('loadGameBtn');
   const newGameButton = document.getElementById('newGameTopBtn');
   const startButton = document.getElementById('startGameBtn');
+  const currentBalance = document.getElementById('currentBalance');
+  const mobileRollButton = document.getElementById('mobileRollBtn');
+  const propertyArtSlot = document.getElementById('propertyArtSlot');
+  const propertyAssetChip = document.getElementById('propertyAssetChip');
+
+  let selectedSpaceIndex = null;
 
   function makeElement(tag, className, text) {
     const element = document.createElement(tag);
@@ -48,6 +55,10 @@ window.addEventListener('DOMContentLoaded', function () {
     return { row: spaceNumber - 30, column: 11 };
   }
 
+  function isOwnable(space) {
+    return Boolean(space && ['property', 'category', 'utility'].includes(space.type));
+  }
+
   function buildPlayerInputs() {
     names.textContent = '';
     for (let i = 1; i <= 8; i += 1) {
@@ -63,6 +74,12 @@ window.addEventListener('DOMContentLoaded', function () {
       label.append(caption, input);
       names.appendChild(label);
     }
+  }
+
+  function selectSpace(spaceIndex, state) {
+    selectedSpaceIndex = Number(spaceIndex);
+    renderBoard(state);
+    renderManage(state);
   }
 
   function renderBoard(state) {
@@ -101,6 +118,21 @@ window.addEventListener('DOMContentLoaded', function () {
       tile.dataset.spaceIndex = String(space.index);
       tile.title = space.notes || space.name;
 
+      if (isOwnable(space)) {
+        tile.tabIndex = 0;
+        tile.setAttribute('role', 'button');
+        tile.setAttribute('aria-label', 'View ' + space.name + ' property details');
+        tile.addEventListener('click', function () { selectSpace(space.index, state); });
+        tile.addEventListener('keydown', function (event) {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            selectSpace(space.index, state);
+          }
+        });
+      }
+
+      if (space.index === selectedSpaceIndex) tile.classList.add('selected-space');
+
       if (state) {
         const current = state.players[state.turn];
         if (current && current.position === space.index) tile.classList.add('current-space');
@@ -111,9 +143,7 @@ window.addEventListener('DOMContentLoaded', function () {
       tile.appendChild(makeElement('span', 'tile-number', space.spaceNumber));
       tile.appendChild(makeElement('strong', 'tile-name', space.name));
 
-      if (space.price) {
-        tile.appendChild(makeElement('span', 'tile-price', formatMoney(space.price)));
-      }
+      if (space.price) tile.appendChild(makeElement('span', 'tile-price', formatMoney(space.price)));
 
       if (state && space.owner !== null) {
         const owner = state.players[space.owner];
@@ -212,11 +242,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     const player = state.players[state.turn];
     const space = state.spaces[player.position];
-    const summary = makeElement(
-      'p',
-      'turn-summary',
-      player.token + ' ' + player.name + ' is on ' + space.name + ' with ' + formatMoney(player.money) + '.'
-    );
+    const summary = makeElement('p', 'turn-summary', player.token + ' ' + player.name + ' is on ' + space.name + ' with ' + formatMoney(player.money) + '.');
     summary.setAttribute('aria-live', 'polite');
     turn.appendChild(summary);
 
@@ -233,10 +259,7 @@ window.addEventListener('DOMContentLoaded', function () {
     if (state.phase === 'roll') {
       actions.appendChild(makeButton('Roll Dice', function () { Game.rollDice(); }, { className: 'primary' }));
       if (player.inJail) {
-        actions.appendChild(makeButton(
-          player.jailFreeCards > 0 ? 'Use Trim Jail Card' : 'Pay 50 BB to Leave',
-          function () { Game.payToLeaveJail(); }
-        ));
+        actions.appendChild(makeButton(player.jailFreeCards > 0 ? 'Use Trim Jail Card' : 'Pay 50 BB to Leave', function () { Game.payToLeaveJail(); }));
       }
     } else if (state.phase === 'action' && state.pending && state.pending.type === 'buy') {
       const buySpace = state.spaces[state.pending.spaceIndex];
@@ -259,14 +282,69 @@ window.addEventListener('DOMContentLoaded', function () {
     turn.appendChild(actions);
   }
 
+  function renderPropertyArt(space) {
+    propertyArtSlot.textContent = '';
+    propertyArtSlot.style.removeProperty('background-image');
+    propertyArtSlot.dataset.assetId = '';
+
+    if (!space || !isOwnable(space)) {
+      propertyAssetChip.textContent = 'Verified V1 deed mapping';
+      propertyArtSlot.appendChild(makeElement('span', '', 'Select an ownership space'));
+      return;
+    }
+
+    const asset = ASSETS.bySpaceIndex && ASSETS.bySpaceIndex[space.index];
+    if (!asset) {
+      propertyAssetChip.textContent = 'No verified mapping';
+      propertyArtSlot.appendChild(makeElement('span', '', space.name));
+      return;
+    }
+
+    propertyArtSlot.dataset.assetId = asset.id;
+    propertyAssetChip.textContent = asset.type === 'property' ? 'V1 board-matched deed' : 'Original card art preserved';
+
+    const image = new Image();
+    image.alt = 'Verified Weedopolis ownership card for ' + asset.name;
+    image.loading = 'lazy';
+    image.decoding = 'async';
+    image.src = asset.webImage;
+    image.addEventListener('load', function () {
+      propertyArtSlot.dataset.artStatus = 'verified-web-export-loaded';
+    });
+    image.addEventListener('error', function () {
+      propertyArtSlot.textContent = '';
+      propertyArtSlot.dataset.artStatus = 'verified-master-web-export-pending';
+      const fallback = makeElement('div', 'verified-art-fallback');
+      fallback.appendChild(makeElement('strong', '', asset.name));
+      fallback.appendChild(makeElement('span', '', 'Verified master mapped: ' + asset.sourceFile));
+      propertyArtSlot.appendChild(fallback);
+    });
+    propertyArtSlot.appendChild(image);
+  }
+
   function renderManage(state) {
     manage.textContent = '';
     if (!state) {
+      renderPropertyArt(null);
       manage.appendChild(makeElement('p', 'empty-state', 'Property management appears after a game starts.'));
       return;
     }
 
     const player = state.players[state.turn];
+    const currentSpace = state.spaces[player.position];
+    const focusSpace = selectedSpaceIndex !== null ? state.spaces[selectedSpaceIndex] : currentSpace;
+    renderPropertyArt(focusSpace);
+
+    if (isOwnable(focusSpace)) {
+      const focusCard = makeElement('div', 'selected-property-summary');
+      const focusHeader = makeElement('header');
+      focusHeader.appendChild(makeElement('strong', '', focusSpace.name));
+      focusHeader.appendChild(makeElement('span', 'status-badge', focusSpace.owner === null ? 'Unowned' : (focusSpace.owner === player.id ? 'Yours' : 'Owned')));
+      focusCard.appendChild(focusHeader);
+      focusCard.appendChild(makeElement('p', '', 'Purchase ' + formatMoney(focusSpace.price) + ' · Mortgage ' + formatMoney(focusSpace.mortgageValue)));
+      manage.appendChild(focusCard);
+    }
+
     const owned = state.spaces.filter(function (space) { return space.owner === player.id; });
     if (owned.length === 0) {
       manage.appendChild(makeElement('p', 'empty-state', player.name + ' does not own any spaces yet.'));
@@ -275,9 +353,10 @@ window.addEventListener('DOMContentLoaded', function () {
 
     const list = makeElement('ul', 'property-list');
     owned.forEach(function (space) {
-      const item = makeElement('li', 'property-card');
+      const item = makeElement('li', 'property-card' + (space.index === selectedSpaceIndex ? ' selected' : ''));
       const header = makeElement('header');
-      header.appendChild(makeElement('strong', '', space.name));
+      const select = makeButton(space.name, function () { selectSpace(space.index, state); }, { className: 'property-select-button' });
+      header.appendChild(select);
       header.appendChild(makeElement('span', 'status-badge', space.mortgaged ? 'Mortgaged' : (space.upgrades === 5 ? 'Dispensary' : space.upgrades + ' tents')));
       item.appendChild(header);
       item.appendChild(makeElement('p', '', 'Mortgage ' + formatMoney(space.mortgageValue) + ' · Upgrade ' + formatMoney(space.upgradeCost)));
@@ -292,9 +371,7 @@ window.addEventListener('DOMContentLoaded', function () {
       if (space.mortgaged) {
         actions.appendChild(makeButton('Unmortgage', function () { Game.unmortgage(space.index); }));
       } else {
-        actions.appendChild(makeButton('Mortgage', function () { Game.mortgage(space.index); }, {
-          disabled: space.upgrades > 0
-        }));
+        actions.appendChild(makeButton('Mortgage', function () { Game.mortgage(space.index); }, { disabled: space.upgrades > 0 }));
       }
       item.appendChild(actions);
       list.appendChild(item);
@@ -308,18 +385,26 @@ window.addEventListener('DOMContentLoaded', function () {
       log.appendChild(makeElement('li', 'empty-state', 'Game events will appear here.'));
       return;
     }
-    state.log.slice(0, 30).forEach(function (message) {
-      log.appendChild(makeElement('li', '', message));
-    });
+    state.log.slice(0, 30).forEach(function (message) { log.appendChild(makeElement('li', '', message)); });
+  }
+
+  function syncTopControls(state) {
+    const player = state && state.players ? state.players[state.turn] : null;
+    currentBalance.textContent = Number(player ? player.money : DATA.startMoney).toLocaleString();
+    const canRoll = Boolean(state && state.phase === 'roll' && player && !player.bankrupt);
+    mobileRollButton.disabled = !canRoll;
+    mobileRollButton.setAttribute('aria-disabled', String(!canRoll));
   }
 
   function render(state) {
     setup.classList.toggle('hidden', Boolean(state));
+    if (state && state.pending && Number.isInteger(state.pending.spaceIndex)) selectedSpaceIndex = state.pending.spaceIndex;
     renderBoard(state);
     renderTurn(state);
     renderPlayers(state);
     renderManage(state);
     renderLog(state);
+    syncTopControls(state);
   }
 
   buildPlayerInputs();
@@ -327,9 +412,8 @@ window.addEventListener('DOMContentLoaded', function () {
   render(Game.state);
 
   startButton.addEventListener('click', function () {
-    const playerNames = Array.from(names.querySelectorAll('input')).map(function (input) {
-      return input.value;
-    });
+    const playerNames = Array.from(names.querySelectorAll('input')).map(function (input) { return input.value; });
+    selectedSpaceIndex = null;
     Game.newGame(playerNames);
   });
 
@@ -339,6 +423,10 @@ window.addEventListener('DOMContentLoaded', function () {
       turn.textContent = '';
       turn.appendChild(makeElement('p', 'pending-card', 'No valid saved game was found in this browser.'));
     }
+  });
+
+  mobileRollButton.addEventListener('click', function () {
+    if (Game.state && Game.state.phase === 'roll') Game.rollDice();
   });
 
   newGameButton.addEventListener('click', function () {
