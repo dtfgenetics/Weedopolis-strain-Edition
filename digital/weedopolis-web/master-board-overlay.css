@@ -1,0 +1,95 @@
+/*
+ * Weedopolis V1 master-board rendering layer.
+ * The master artwork is the visible board. The 11x11 HTML grid remains as the
+ * interaction/token/ownership overlay so game logic does not redraw the art.
+ */
+
+.board-art-slot {
+  opacity: 1;
+  background: #efe3bf url('assets/board/weedopolis-master-board.webp') center / contain no-repeat;
+}
+
+.board-frame .board {
+  background: transparent;
+}
+
+.board-frame .board-center {
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+}
+
+.board-frame .board-center > .eyebrow,
+.board-frame .board-center > h2,
+.board-frame .board-center > p {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.board-frame .tile {
+  border-color: transparent;
+  color: transparent;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.board-frame .tile::before {
+  opacity: 0;
+}
+
+.board-frame .tile-number,
+.board-frame .tile-name,
+.board-frame .tile-price {
+  opacity: 0;
+}
+
+.board-frame .tile:hover,
+.board-frame .tile:focus-within {
+  background: rgba(242, 223, 155, .09);
+}
+
+.board-frame .tile.current-space {
+  outline: 3px solid #f2df9b;
+  outline-offset: -3px;
+  background: rgba(242, 223, 155, .08);
+  filter: none;
+}
+
+.board-frame .owner-badge,
+.board-frame .upgrade-badge,
+.board-frame .player-token,
+.board-frame .token-row,
+.board-frame .dice-display {
+  color: initial;
+  opacity: 1;
+}
+
+.board-frame .owner-badge {
+  color: #fff8df;
+  background: rgba(12, 45, 29, .92);
+  border: 1px solid rgba(242, 223, 155, .72);
+}
+
+.board-frame .upgrade-badge {
+  display: inline-flex;
+  width: max-content;
+  padding: .12rem .25rem;
+  border-radius: .3rem;
+  color: #173f2a;
+  background: rgba(248, 239, 213, .92);
+  border: 1px solid rgba(185, 147, 62, .7);
+}
+
+.board-frame .player-token {
+  color: #102d20;
+  background: #f8efd5;
+  border: 2px solid #b9933e;
+  box-shadow: 0 2px 8px rgba(0,0,0,.5);
+}
+
+@media (max-width: 720px) {
+  .board-frame .board {
+    min-width: 640px;
+  }
+}
