@@ -3,9 +3,10 @@ name: Weedopolis Production Preview CI
 on:
   pull_request:
     paths:
+      - digital/weedopolis-web/**
       - public/weedopolis-preview/**
       - src/games/weedopolis/**
-      - data/board_map.csv
+      - data/**
       - scripts/**
       - package.json
       - .github/workflows/production-preview-ci.yml
@@ -13,9 +14,10 @@ on:
     branches:
       - main
     paths:
+      - digital/weedopolis-web/**
       - public/weedopolis-preview/**
       - src/games/weedopolis/**
-      - data/board_map.csv
+      - data/**
       - scripts/**
       - package.json
       - .github/workflows/production-preview-ci.yml
@@ -35,21 +37,36 @@ jobs:
           node-version: 22
       - name: Validate game data and engine
         run: npm run validate
-      - name: Validate production preview and SEO fallback
+      - name: Validate recovered production web build
         run: npm run check:preview
       - name: Build self-contained production preview
         run: npm run build:preview
-      - name: Verify deployable output
+      - name: Verify deployable Weedopolis V1 output
         shell: bash
         run: |
           set -euo pipefail
           test -s dist/weedopolis/index.html
-          test -s dist/weedopolis/style.css
-          test -s dist/weedopolis/src/games/weedopolis/preview/app.js
-          test -s dist/weedopolis/data/board_map.csv
+          test -s dist/weedopolis/styles.css
+          test -s dist/weedopolis/approved-assets.css
+          test -s dist/weedopolis/runtime-assets.css
+          test -s dist/weedopolis/master-board-overlay.css
+          test -s dist/weedopolis/js/weedopolis-edition.js
+          test -s dist/weedopolis/js/weedopolis-master-overrides.js
+          test -s dist/weedopolis/js/weedopolis-assets.js
+          test -s dist/weedopolis/js/weedopolis-engine.js
+          test -s dist/weedopolis/js/weedopolis-ui.js
+          test -s dist/weedopolis/assets/asset-manifest.json
+          test -s dist/weedopolis/assets/board/weedopolis-master-board.webp
           grep -Fq 'https://dtfseeds.com/games/weedopolis/' dist/weedopolis/index.html
-          grep -Fq '<h1' dist/weedopolis/index.html
-          grep -Fq 'src="./src/games/weedopolis/preview/app.js"' dist/weedopolis/index.html
+          grep -Fq 'data-ui-standard="premium-responsive-shell-v1"' dist/weedopolis/index.html
+          grep -Fq 'data-art-standard="weedopolis-v1-master"' dist/weedopolis/index.html
+          grep -Fq 'js/weedopolis-assets.js' dist/weedopolis/index.html
+          grep -Fq "assets/board/weedopolis-master-board.webp" dist/weedopolis/master-board-overlay.css
+          grep -Fq 'expectedOwnershipCards: 28' dist/weedopolis/js/weedopolis-assets.js
+          if test -d dist/weedopolis/assets/board/v1-master-b64; then
+            echo 'Source-only board transport chunks leaked into production output.' >&2
+            exit 1
+          fi
       - name: Upload deployable artifact
         uses: actions/upload-artifact@v4
         with:
