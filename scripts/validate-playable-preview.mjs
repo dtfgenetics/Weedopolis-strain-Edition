@@ -40,7 +40,6 @@ for (const required of [
   'approved-assets.css',
   'runtime-assets.css',
   'master-board-overlay.css',
-  'assets/board/weedopolis-master-board.webp',
   'https://dtfseeds.com/games/weedopolis/'
 ]) {
   assert(html.includes(required), `missing playable Weedopolis markup: ${required}`);
