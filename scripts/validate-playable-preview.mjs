@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -112,6 +113,7 @@ for (const required of [
 }
 const sourceFileMatches = assetRegistry.match(/_Verified\.png/g) || [];
 assert.equal(sourceFileMatches.length, 28, `ownership registry must map 28 verified master filenames; found ${sourceFileMatches.length}`);
+assert(assetRegistry.includes("webImage: 'assets/property-cards/webp/' + id + '.webp'"), 'ownership registry must resolve canonical webp exports');
 
 assert.equal(manifest.board.version, 'V1', 'digital game must use Weedopolis V1, not the separate V2/Hex edition');
 assert.equal(manifest.board.layout, 'classic 40-space square board');
@@ -130,4 +132,17 @@ assert.equal(boardBytes.subarray(8, 12).toString('ascii'), 'WEBP', 'approved boa
 assert(buildScript.includes('weedopolis-master-board.webp'), 'production build must reconstruct approved board artwork');
 assert(buildScript.includes('v1-master-b64'), 'production build must use locked V1 board chunks');
 
-console.log(`Weedopolis V1 production validation passed; master board ${boardBytes.length} bytes; 28-card registry + premium responsive runtime locked`);
+const autoFlowerChunkRoot = path.join(root, 'assets/property-cards/source-b64/autoflower');
+const autoFlowerChunks = fs.readdirSync(autoFlowerChunkRoot).filter((name) => /^part-\d+\.txt$/.test(name)).sort();
+assert.equal(autoFlowerChunks.length, 7, `expected 7 verified AutoFlower card chunks, found ${autoFlowerChunks.length}`);
+const autoFlowerBase64 = autoFlowerChunks.map((name) => fs.readFileSync(path.join(autoFlowerChunkRoot, name), 'utf8').trim()).join('');
+const autoFlowerBytes = Buffer.from(autoFlowerBase64, 'base64');
+const autoFlowerSha256 = createHash('sha256').update(autoFlowerBytes).digest('hex');
+assert.equal(autoFlowerBytes.length, 39634, `verified AutoFlower web export byte length changed: ${autoFlowerBytes.length}`);
+assert.equal(autoFlowerBytes.subarray(0, 4).toString('ascii'), 'RIFF', 'verified AutoFlower card must be RIFF WebP');
+assert.equal(autoFlowerBytes.subarray(8, 12).toString('ascii'), 'WEBP', 'verified AutoFlower card must be WebP');
+assert.equal(autoFlowerSha256, '84c0d05bfc26aa104351e3f9065e1ea8b2a94bacc566b5b66a57ff7ad98fca12', 'verified AutoFlower card checksum changed');
+assert(buildScript.includes('assets/property-cards/webp/autoflower.webp'), 'production build must reconstruct AutoFlower ownership card');
+assert(buildScript.includes('84c0d05bfc26aa104351e3f9065e1ea8b2a94bacc566b5b66a57ff7ad98fca12'), 'production build must lock AutoFlower card checksum');
+
+console.log(`Weedopolis V1 production validation passed; master board ${boardBytes.length} bytes; verified AutoFlower deed ${autoFlowerBytes.length} bytes sha256=${autoFlowerSha256}; 28-card registry + premium responsive runtime locked`);
