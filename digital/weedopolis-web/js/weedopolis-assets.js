@@ -15,6 +15,16 @@
     dark_blue: '#0C1179'
   };
 
+  // Only IDs in this table may trigger a browser request for a deed image.
+  // This prevents 404 probes for verified masters whose browser exports have
+  // not yet been recovered and checksum-approved.
+  const VERIFIED_WEB_EXPORTS = {
+    autoflower: {
+      bytes: 39634,
+      sha256: '84c0d05bfc26aa104351e3f9065e1ea8b2a94bacc566b5b66a57ff7ad98fca12'
+    }
+  };
+
   const cards = [
     ['acapulco-gold','Acapulco Gold','property',2,60,'brown','Property_Acapulco_Gold_Verified.png'],
     ['maui-wowie','Maui Wowie','property',4,60,'brown','Property_Maui_Wowie_Verified.png'],
@@ -46,6 +56,7 @@
     ['water-works','Water Works','utility',29,150,null,'Utility_Water_Works_Verified.png']
   ].map(function (row) {
     const [id, name, type, boardPosition, purchase, colorGroup, sourceFile] = row;
+    const verifiedWebExport = VERIFIED_WEB_EXPORTS[id] || null;
     return {
       id,
       name,
@@ -58,6 +69,9 @@
       swatchPolicy: type === 'property' ? 'match-v1-master-board' : 'preserve-original-card-art',
       sourceFile,
       webImage: 'assets/property-cards/webp/' + id + '.webp',
+      webReady: Boolean(verifiedWebExport),
+      webBytes: verifiedWebExport ? verifiedWebExport.bytes : null,
+      webSha256: verifiedWebExport ? verifiedWebExport.sha256 : null,
       masterImage: 'assets/property-cards/master/' + sourceFile
     };
   });
@@ -73,6 +87,8 @@
     expectedProperties: 22,
     expectedPremiumLines: 4,
     expectedUtilities: 2,
+    verifiedWebExportCount: Object.keys(VERIFIED_WEB_EXPORTS).length,
+    verifiedWebExports: VERIFIED_WEB_EXPORTS,
     colors: COLORS,
     cards,
     bySpaceIndex,
