@@ -120,6 +120,16 @@ assert.equal(manifest.board.layout, 'classic 40-space square board');
 assert.equal(manifest.board.assembled_board, 'assets/board/weedopolis-master-board.webp');
 assert.equal(manifest.spaces.expected_count, 40, 'asset manifest must describe all 40 board spaces');
 assert.equal(manifest.deeds.expected_count, 28, 'asset manifest must describe all 28 ownership cards');
+assert.equal(manifest.deeds.web_exports_ready, 1, 'asset manifest must track the first verified deed web export');
+assert.equal(manifest.deeds.web_exports_pending, 27, 'asset manifest must track 27 remaining deed web exports');
+assert.equal(manifest.deeds.verified_web_exports.length, 1, 'asset manifest must list the verified AutoFlower export');
+const autoFlowerManifest = manifest.deeds.verified_web_exports[0];
+assert.equal(autoFlowerManifest.id, 'autoflower');
+assert.equal(autoFlowerManifest.source_file, 'Premium_Line_AutoFlower_Verified.png');
+assert.equal(autoFlowerManifest.path, 'assets/property-cards/webp/autoflower.webp');
+assert.equal(autoFlowerManifest.bytes, 39634);
+assert.equal(autoFlowerManifest.sha256, '84c0d05bfc26aa104351e3f9065e1ea8b2a94bacc566b5b66a57ff7ad98fca12');
+assert.equal(autoFlowerManifest.swatch_policy, 'preserve-original-card-art');
 
 const chunkRoot = path.join(root, 'assets/board/v1-master-b64');
 const chunks = fs.readdirSync(chunkRoot).filter((name) => /^part-\d+\.txt$/.test(name)).sort();
@@ -145,4 +155,4 @@ assert.equal(autoFlowerSha256, '84c0d05bfc26aa104351e3f9065e1ea8b2a94bacc566b5b6
 assert(buildScript.includes('assets/property-cards/webp/autoflower.webp'), 'production build must reconstruct AutoFlower ownership card');
 assert(buildScript.includes('84c0d05bfc26aa104351e3f9065e1ea8b2a94bacc566b5b66a57ff7ad98fca12'), 'production build must lock AutoFlower card checksum');
 
-console.log(`Weedopolis V1 production validation passed; master board ${boardBytes.length} bytes; verified AutoFlower deed ${autoFlowerBytes.length} bytes sha256=${autoFlowerSha256}; 28-card registry + premium responsive runtime locked`);
+console.log(`Weedopolis V1 production validation passed; master board ${boardBytes.length} bytes; verified AutoFlower deed ${autoFlowerBytes.length} bytes sha256=${autoFlowerSha256}; 1/28 deed exports ready; premium responsive runtime locked`);
