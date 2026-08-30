@@ -8,7 +8,10 @@ const boardChunkRoot = join(sourceRoot, 'assets/board/v1-master-b64');
 const boardOutput = join(outputRoot, 'assets/board/weedopolis-master-board.webp');
 const autoFlowerChunkRoot = join(sourceRoot, 'assets/property-cards/source-b64/autoflower');
 const autoFlowerOutput = join(outputRoot, 'assets/property-cards/webp/autoflower.webp');
+const highChance01ChunkRoot = join(sourceRoot, 'assets/decks/source-b64/high-chance/01');
+const highChance01Output = join(outputRoot, 'assets/decks/high-chance/high-chance-01.webp');
 const AUTO_FLOWER_SHA256 = '84c0d05bfc26aa104351e3f9065e1ea8b2a94bacc566b5b66a57ff7ad98fca12';
+const HIGH_CHANCE_01_SHA256 = '20b9e9b18c01ba7e5990543942ecced08a96423c4a2a8d09d6a158ab4194a072';
 
 await rm(outputRoot, { recursive: true, force: true });
 await mkdir(outputRoot, { recursive: true });
@@ -58,9 +61,19 @@ const autoFlower = await reconstructWebp({
   expectedSha256: AUTO_FLOWER_SHA256
 });
 
+const highChance01 = await reconstructWebp({
+  chunkRoot: highChance01ChunkRoot,
+  expectedChunks: 6,
+  output: highChance01Output,
+  label: 'Approved High Chance #1 card',
+  minBytes: 15000,
+  expectedSha256: HIGH_CHANCE_01_SHA256
+});
+
 // Do not publish source transport chunks to the public site.
 await rm(join(outputRoot, 'assets/board/v1-master-b64'), { recursive: true, force: true });
 await rm(join(outputRoot, 'assets/board/source-b64'), { recursive: true, force: true });
 await rm(join(outputRoot, 'assets/property-cards/source-b64'), { recursive: true, force: true });
+await rm(join(outputRoot, 'assets/decks/source-b64'), { recursive: true, force: true });
 
-console.log(`Built playable Weedopolis web game with approved V1 master board (${board.bytes} bytes) and verified AutoFlower deed (${autoFlower.bytes} bytes, sha256=${autoFlower.sha256}) at ${outputRoot}`);
+console.log(`Built playable Weedopolis web game with approved V1 master board (${board.bytes} bytes), verified AutoFlower deed (${autoFlower.bytes} bytes, sha256=${autoFlower.sha256}), and approved High Chance #1 art (${highChance01.bytes} bytes, sha256=${highChance01.sha256}) at ${outputRoot}`);
