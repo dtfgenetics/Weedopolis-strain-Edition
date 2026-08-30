@@ -10,6 +10,7 @@
   if (!DATA || !Game) throw new Error('Approved deck runtime requires Weedopolis edition data and engine.');
 
   function card(deck, number, text, action, value, sourceFile) {
+    const webReady = deck === 'High Chance' && number === 1;
     return {
       id: number - 1,
       approvedNumber: number,
@@ -19,7 +20,8 @@
       value,
       sourceFile,
       webImage: 'assets/decks/' + (deck === 'High Chance' ? 'high-chance' : 'community-stash') + '/' +
-        (deck === 'High Chance' ? 'high-chance-' : 'community-stash-') + String(number).padStart(2, '0') + '.webp'
+        (deck === 'High Chance' ? 'high-chance-' : 'community-stash-') + String(number).padStart(2, '0') + '.webp',
+      webReady
     };
   }
 
@@ -128,6 +130,58 @@
     this.log(`${player.name} moves to the nearest Dispensary property: ${target.name}.`);
     this.moveBy(player, steps);
   };
+
+  function syncPendingCardArt() {
+    const turnPanel = document.getElementById('turnPanel');
+    if (!turnPanel) return;
+
+    const drawnCard = Game.state && Game.state.pending && Game.state.pending.card;
+    const oldArt = turnPanel.querySelector('[data-approved-deck-art]');
+    if (!drawnCard || !drawnCard.webReady || !drawnCard.webImage) {
+      if (oldArt) oldArt.remove();
+      return;
+    }
+
+    const textCard = turnPanel.querySelector('.pending-card');
+    if (!textCard) return;
+    if (oldArt && oldArt.dataset.approvedDeckArt === drawnCard.webImage) return;
+    if (oldArt) oldArt.remove();
+
+    const figure = document.createElement('figure');
+    figure.dataset.approvedDeckArt = drawnCard.webImage;
+    figure.style.margin = '0 0 .75rem';
+    figure.style.padding = '.6rem';
+    figure.style.border = '1px solid rgba(109,81,32,.28)';
+    figure.style.borderRadius = '.65rem';
+    figure.style.background = 'rgba(255,255,255,.28)';
+
+    const image = document.createElement('img');
+    image.src = drawnCard.webImage;
+    image.alt = `${drawnCard.deck} #${drawnCard.approvedNumber} approved Weedopolis card artwork`;
+    image.loading = 'eager';
+    image.decoding = 'async';
+    image.style.display = 'block';
+    image.style.width = 'min(100%, 220px)';
+    image.style.height = 'auto';
+    image.style.margin = '0 auto';
+    image.style.borderRadius = '.45rem';
+    image.style.boxShadow = '0 8px 24px rgba(0,0,0,.25)';
+    image.addEventListener('error', function () {
+      figure.remove();
+      console.error('Approved Weedopolis deck artwork failed to load:', drawnCard.webImage);
+    }, { once: true });
+
+    figure.appendChild(image);
+    textCard.before(figure);
+  }
+
+  window.addEventListener('DOMContentLoaded', function () {
+    const turnPanel = document.getElementById('turnPanel');
+    if (!turnPanel) return;
+    const observer = new MutationObserver(syncPendingCardArt);
+    observer.observe(turnPanel, { childList: true, subtree: true });
+    syncPendingCardArt();
+  });
 
   window.WEEDOPOLIS_APPROVED_DECKS = {
     version: 'approved-physical-masters-v1',
