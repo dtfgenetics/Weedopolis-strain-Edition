@@ -9,10 +9,11 @@
     "validate:ui": "node scripts/validate-ui-models.mjs",
     "validate:controller": "node scripts/validate-local-controller.mjs",
     "validate:decks": "node scripts/validate-approved-decks.mjs",
+    "validate:production": "node scripts/validate-production-surface.mjs",
     "check:preview": "node scripts/validate-playable-preview.mjs",
     "build:preview": "node scripts/build-production-preview.mjs",
     "check:online": "node scripts/validate-online-multiplayer.mjs",
     "check:wordpress": "node scripts/validate-wordpress-multiplayer.mjs",
-    "validate": "npm run validate:data && npm run validate:engine && npm run validate:ui && npm run validate:controller && npm run validate:decks"
+    "validate": "npm run validate:data && npm run validate:engine && npm run validate:ui && npm run validate:controller && npm run validate:decks && npm run validate:production"
   }
 }
