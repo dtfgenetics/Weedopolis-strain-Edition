@@ -1,0 +1,126 @@
+.trade-desk {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.trade-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.trade-heading h3,
+.trade-heading p {
+  margin: 0;
+}
+
+.trade-heading p {
+  margin-top: 0.3rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.trade-kicker {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--gold);
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+}
+
+.trade-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.trade-field {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.trade-field > span {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.trade-field select,
+.trade-field input {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid rgba(229, 208, 142, 0.3);
+  border-radius: 0.7rem;
+  padding: 0.68rem 0.72rem;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.trade-field select:focus-visible,
+.trade-consent input:focus-visible {
+  outline: 3px solid #f8dc75;
+  outline-offset: 3px;
+}
+
+.trade-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.72rem;
+  border: 1px solid rgba(229, 208, 142, 0.22);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.trade-consent input {
+  width: 1.15rem;
+  min-width: 1.15rem;
+  height: 1.15rem;
+  margin: 0.05rem 0 0;
+  accent-color: var(--gold);
+}
+
+.trade-status {
+  min-height: 1.35em;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.trade-status.warning {
+  color: #ffd6a0;
+}
+
+.trade-execute {
+  min-height: 44px;
+}
+
+@media (max-width: 620px) {
+  .trade-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trade-heading {
+    align-items: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trade-desk *,
+  .trade-desk *::before,
+  .trade-desk *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
