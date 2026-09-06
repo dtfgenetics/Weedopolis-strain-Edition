@@ -21,12 +21,19 @@ export function createLocalActions(store, options = {}) {
     },
     roll(random = Math.random) {
       const state = store.getState();
+      if (!state) throw new Error('No game exists.');
+      if (state.phase !== 'turn_start') {
+        throw new Error('Finish the current turn before rolling again.');
+      }
       const result = rollTwo(random);
       return store.setState({ ...state, dice: result, phase: 'movement' });
     },
     move(boardRows) {
       const state = store.getState();
       if (!state?.dice) throw new Error('Roll before moving.');
+      if (state.phase !== 'movement') {
+        throw new Error('Movement is only allowed after the current turn roll.');
+      }
       return store.setState(moveCurrentPlayer(state, state.dice.total, boardRows));
     }
   };
