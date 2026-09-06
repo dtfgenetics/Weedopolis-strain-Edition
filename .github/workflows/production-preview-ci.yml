@@ -50,17 +50,24 @@ jobs:
           test -s dist/weedopolis/approved-assets.css
           test -s dist/weedopolis/runtime-assets.css
           test -s dist/weedopolis/master-board-overlay.css
+          test -s dist/weedopolis/trading.css
           test -s dist/weedopolis/js/weedopolis-edition.js
           test -s dist/weedopolis/js/weedopolis-master-overrides.js
           test -s dist/weedopolis/js/weedopolis-assets.js
           test -s dist/weedopolis/js/weedopolis-engine.js
+          test -s dist/weedopolis/js/weedopolis-solvency.js
+          test -s dist/weedopolis/js/weedopolis-trading.js
           test -s dist/weedopolis/js/weedopolis-ui.js
+          test -s dist/weedopolis/js/weedopolis-trade-ui.js
           test -s dist/weedopolis/assets/asset-manifest.json
           test -s dist/weedopolis/assets/board/weedopolis-master-board.webp
           grep -Fq 'https://dtfseeds.com/games/weedopolis/' dist/weedopolis/index.html
           grep -Fq 'data-ui-standard="premium-responsive-shell-v1"' dist/weedopolis/index.html
           grep -Fq 'data-art-standard="weedopolis-v1-master"' dist/weedopolis/index.html
           grep -Fq 'js/weedopolis-assets.js' dist/weedopolis/index.html
+          grep -Fq 'js/weedopolis-trading.js' dist/weedopolis/index.html
+          grep -Fq 'js/weedopolis-trade-ui.js' dist/weedopolis/index.html
+          grep -Fq 'trading.css' dist/weedopolis/index.html
           grep -Fq "assets/board/weedopolis-master-board.webp" dist/weedopolis/master-board-overlay.css
           grep -Fq 'expectedOwnershipCards: 28' dist/weedopolis/js/weedopolis-assets.js
           if test -d dist/weedopolis/assets/board/v1-master-b64; then
