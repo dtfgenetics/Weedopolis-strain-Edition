@@ -17,6 +17,8 @@ let state = store.getState();
 assert.equal(state.phase, 'lobby');
 assert.equal(state.players.length, 2);
 assert(state.inviteUrl.includes('game='));
+assert.throws(() => actions.roll(() => 0), /Finish the current turn/);
+assert.throws(() => actions.move(boardRows), /Roll before moving/);
 
 actions.ready('host', true);
 actions.ready(state.players[1].id, true);
@@ -28,11 +30,15 @@ actions.roll(() => 0);
 state = store.getState();
 assert.equal(state.dice.total, 2);
 assert.equal(state.phase, 'movement');
+const firstRoll = state.dice;
+assert.throws(() => actions.roll(() => 0.9), /Finish the current turn/);
+assert.deepEqual(store.getState().dice, firstRoll);
 
 actions.move(boardRows);
 state = store.getState();
 assert.equal(state.phase, 'landing_resolution');
 assert.equal(state.players[0].position, 3);
 assert.equal(state.landing.action, 'draw_community_stash');
+assert.throws(() => actions.move(boardRows), /Movement is only allowed/);
 
 console.log('local controller validation passed');
