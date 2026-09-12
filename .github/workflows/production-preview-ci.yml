@@ -58,6 +58,7 @@ jobs:
           test -s dist/weedopolis/js/weedopolis-solvency.js
           test -s dist/weedopolis/js/weedopolis-trading.js
           test -s dist/weedopolis/js/weedopolis-ui.js
+          test -s dist/weedopolis/js/weedopolis-mobile-turn-dock.js
           test -s dist/weedopolis/js/weedopolis-trade-ui.js
           test -s dist/weedopolis/assets/asset-manifest.json
           test -s dist/weedopolis/assets/board/weedopolis-master-board.webp
@@ -66,6 +67,7 @@ jobs:
           grep -Fq 'data-art-standard="weedopolis-v1-master"' dist/weedopolis/index.html
           grep -Fq 'js/weedopolis-assets.js' dist/weedopolis/index.html
           grep -Fq 'js/weedopolis-trading.js' dist/weedopolis/index.html
+          grep -Fq 'js/weedopolis-mobile-turn-dock.js' dist/weedopolis/index.html
           grep -Fq 'js/weedopolis-trade-ui.js' dist/weedopolis/index.html
           grep -Fq 'trading.css' dist/weedopolis/index.html
           grep -Fq "assets/board/weedopolis-master-board.webp" dist/weedopolis/master-board-overlay.css
