@@ -40,6 +40,7 @@
   <link rel="stylesheet" href="runtime-assets.css" />
   <link rel="stylesheet" href="master-board-overlay.css" />
   <link rel="stylesheet" href="trading.css" />
+  <link rel="stylesheet" href="production-interactions.css" />
 </head>
 <body id="top">
   <header class="game-command-bar" aria-label="Weedopolis game controls">
@@ -75,12 +76,12 @@
       <h2 id="weedopolis-board-title" class="visually-hidden">Weedopolis game board</h2>
 
       <div class="board-frame" data-art-status="v1-master-loaded">
-        <div class="board-art-slot" role="img" aria-label="Weedopolis V1 production master board"></div>
-        <div id="board" class="board" aria-label="Interactive Weedopolis board overlay"></div>
+        <div class="board-art-slot" role="img" aria-label="Weedopolis game board artwork"></div>
+        <div id="board" class="board" aria-label="Interactive Weedopolis board"></div>
       </div>
 
       <p class="asset-status-note">
-        Gameplay uses the Weedopolis V1 square-board master as the visual authority. Interactive spaces and tokens are layered over the master artwork.
+        Board artwork, interactive spaces, player tokens, and property actions stay synchronized throughout the match.
       </p>
     </section>
 
@@ -104,9 +105,9 @@
       <section id="propertySection" class="panel parchment-panel property-management-card">
         <div class="panel-heading">
           <h2>Property / Management</h2>
-          <span class="asset-chip" id="propertyAssetChip">Verified V1 deed mapping</span>
+          <span class="asset-chip" id="propertyAssetChip">Deed artwork ready</span>
         </div>
-        <div class="property-art-slot" id="propertyArtSlot" data-art-status="verified-master-mapped" role="img" aria-label="Selected verified Weedopolis deed artwork">
+        <div class="property-art-slot" id="propertyArtSlot" data-art-status="verified-master-mapped" role="img" aria-label="Selected Weedopolis deed artwork">
           <span id="propertyArtFallback">Select a property</span>
         </div>
         <div id="managePanel"></div>
