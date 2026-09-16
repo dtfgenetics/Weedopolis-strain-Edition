@@ -1,0 +1,94 @@
+/* Weedopolis production interaction layer.
+   Rules and board coordinates stay authoritative in the existing engine. */
+
+html{overscroll-behavior-y:none}
+body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+button,a,input{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+button,.mobile-game-dock a,.mobile-game-dock button{min-height:44px}
+
+/* Make the active turn the strongest surface without hiding property tools. */
+#turnSection:focus{outline:3px solid #f8dc75;outline-offset:3px}
+.turn-card{scroll-margin-top:1rem}
+.property-management-card{scroll-margin-top:1rem}
+
+.mobile-game-dock a,
+.mobile-game-dock button{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-width:0;
+  padding:.55rem .35rem;
+  border-radius:.55rem;
+  text-align:center;
+  text-decoration:none;
+  font-size:.72rem;
+  font-weight:850;
+  line-height:1.05;
+}
+.mobile-game-dock button:not(:disabled){
+  color:#082015;
+  border-color:#f0dc98;
+  background:linear-gradient(180deg,#f5e6aa,#cfad4f);
+  box-shadow:0 6px 18px rgba(0,0,0,.22);
+}
+.mobile-game-dock button[data-mobile-action="turn-actions"]:not(:disabled){
+  color:#f9f0d3;
+  background:linear-gradient(180deg,#2f704a,#174329);
+}
+
+/* Current-space feedback is not color-only. */
+.tile.current-space::after{
+  content:"ACTIVE";
+  position:absolute;
+  right:.18rem;
+  bottom:.16rem;
+  z-index:4;
+  padding:.12rem .22rem;
+  border-radius:.25rem;
+  color:#10271b;
+  background:#fff3a8;
+  font-size:.45rem;
+  font-weight:950;
+  letter-spacing:.04em;
+  pointer-events:none;
+}
+
+@media(max-width:960px){
+  body{padding-bottom:calc(82px + env(safe-area-inset-bottom))}
+  .game-rail{display:flex;flex-direction:column}
+  #turnSection{order:1}
+  #propertySection{order:2}
+  #playersSection{order:3}
+  #logSection{order:4}
+  .mobile-game-dock{
+    bottom:max(.45rem,env(safe-area-inset-bottom));
+    padding-bottom:calc(.42rem + env(safe-area-inset-bottom));
+  }
+  .board-frame{scrollbar-gutter:stable both-edges}
+  .asset-status-note{font-size:.76rem}
+}
+
+@media(max-width:520px){
+  .game-command-bar{min-height:64px;padding:.5rem .55rem}
+  .game-identity>span:last-child,.brand-kicker{display:none}
+  .command-right{gap:.35rem}
+  .bud-bucks-display{min-height:44px;padding:.3rem .55rem}
+  .bud-bucks-display small{display:none}
+  .bud-bucks-display strong{font-size:1.05rem}
+  .utility-button{padding:.55rem .62rem;font-size:.74rem}
+  .game-shell{padding:.45rem}
+  .setup-panel,.panel{padding:.8rem}
+  .mobile-game-dock{right:.35rem;left:.35rem;gap:.25rem;padding:.35rem}
+  .mobile-game-dock a,.mobile-game-dock button{font-size:.66rem;padding:.5rem .2rem}
+  .players-card,.game-log-card{content-visibility:auto;contain-intrinsic-size:260px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  button,.tile,.mobile-game-dock{transition:none!important;animation:none!important}
+}
+
+@media(forced-colors:active){
+  .tile.current-space{outline:3px solid Highlight}
+  .tile.current-space::after{border:1px solid ButtonText}
+  .mobile-game-dock button:not(:disabled){border:2px solid ButtonText}
+}
