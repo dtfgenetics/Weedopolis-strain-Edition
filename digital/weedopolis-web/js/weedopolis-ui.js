@@ -288,20 +288,20 @@ window.addEventListener('DOMContentLoaded', function () {
     propertyArtSlot.dataset.assetId = '';
 
     if (!space || !isOwnable(space)) {
-      propertyAssetChip.textContent = 'Verified V1 deed mapping';
+      propertyAssetChip.textContent = 'Property details';
       propertyArtSlot.appendChild(makeElement('span', '', 'Select an ownership space'));
       return;
     }
 
     const asset = ASSETS.bySpaceIndex && ASSETS.bySpaceIndex[space.index];
     if (!asset) {
-      propertyAssetChip.textContent = 'No verified mapping';
+      propertyAssetChip.textContent = 'Artwork unavailable';
       propertyArtSlot.appendChild(makeElement('span', '', space.name));
       return;
     }
 
     propertyArtSlot.dataset.assetId = asset.id;
-    propertyAssetChip.textContent = asset.type === 'property' ? 'V1 board-matched deed' : 'Original card art preserved';
+    propertyAssetChip.textContent = asset.type === 'property' ? 'Property card' : 'Ownership card';
 
     const image = new Image();
     image.alt = 'Verified Weedopolis ownership card for ' + asset.name;
@@ -316,7 +316,7 @@ window.addEventListener('DOMContentLoaded', function () {
       propertyArtSlot.dataset.artStatus = 'verified-master-web-export-pending';
       const fallback = makeElement('div', 'verified-art-fallback');
       fallback.appendChild(makeElement('strong', '', asset.name));
-      fallback.appendChild(makeElement('span', '', 'Verified master mapped: ' + asset.sourceFile));
+      fallback.appendChild(makeElement('span', '', 'Card artwork is still loading. Gameplay details remain available below.'));
       propertyArtSlot.appendChild(fallback);
     });
     propertyArtSlot.appendChild(image);
