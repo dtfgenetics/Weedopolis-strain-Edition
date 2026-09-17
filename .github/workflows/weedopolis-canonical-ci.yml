@@ -1,0 +1,61 @@
+name: Weedopolis Canonical CI
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "digital/weedopolis-web/**"
+      - "src/games/weedopolis/**"
+      - "data/**"
+      - "scripts/**"
+      - "wordpress-plugin/weedopolis-multiplayer/**"
+      - "package.json"
+      - ".github/workflows/weedopolis-canonical-ci.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "digital/weedopolis-web/**"
+      - "src/games/weedopolis/**"
+      - "data/**"
+      - "scripts/**"
+      - "wordpress-plugin/weedopolis-multiplayer/**"
+      - "package.json"
+      - ".github/workflows/weedopolis-canonical-ci.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: weedopolis-canonical-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Validate canonical game data and engine
+        run: npm run validate
+
+      - name: Validate playable responsive surface
+        run: npm run check:preview
+
+      - name: Build production browser package
+        run: npm run build:preview
+
+      - name: Validate online multiplayer contracts
+        run: npm run check:online
+
+      - name: Validate WordPress multiplayer contracts
+        run: npm run check:wordpress
