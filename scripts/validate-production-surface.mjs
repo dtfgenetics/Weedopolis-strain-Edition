@@ -40,7 +40,9 @@ for (const required of [
 for (const forbidden of [
   'Weedopolis V1 production master board',
   'Verified V1 deed mapping',
-  'Gameplay uses the Weedopolis V1 square-board master as the visual authority'
+  'Gameplay uses the Weedopolis V1 square-board master as the visual authority',
+  'V1 board-matched deed',
+  'Verified master mapped:'
 ]) {
   assert(!html.includes(forbidden), `player-facing production HTML leaks internal wording: ${forbidden}`);
 }
@@ -52,9 +54,20 @@ for (const required of [
   '.tile.current-space::after',
   'content:"ACTIVE"',
   '@media(forced-colors:active)',
-  '@media(prefers-reduced-motion:reduce)'
+  '@media(prefers-reduced-motion:reduce)',
+  '.player-name-field input,.auction-field input,.manage-actions button,.property-select-button{min-height:44px'
 ]) {
   assert(interactions.includes(required), `production interaction layer missing: ${required}`);
+}
+
+assert(html.includes('<a href="#playersSection">Players</a>'), 'mobile dock must provide direct Players access');
+assert(html.includes('<h2>Property Manager</h2>'), 'property panel must use player-facing management language');
+assert(html.includes('id="propertyAssetChip">Property card</span>'), 'property asset chip must avoid internal verification language');
+assert(!uiIncludesInternalAssetCopy(), 'player-facing UI script must not expose internal asset-pipeline labels');
+
+function uiIncludesInternalAssetCopy() {
+  const ui = fs.readFileSync('digital/weedopolis-web/js/weedopolis-ui.js', 'utf8');
+  return /Verified V1 deed mapping|V1 board-matched deed|Verified master mapped:/.test(ui);
 }
 
 console.log('Weedopolis production surface validation passed');
