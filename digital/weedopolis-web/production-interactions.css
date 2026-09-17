@@ -10,6 +10,8 @@ button,.mobile-game-dock a,.mobile-game-dock button{min-height:44px}
 #turnSection:focus{outline:3px solid #f8dc75;outline-offset:3px}
 .turn-card{scroll-margin-top:1rem}
 .property-management-card{scroll-margin-top:1rem}
+.players-card,.game-log-card{scroll-margin-top:1rem}
+.player-name-field input,.auction-field input,.manage-actions button,.property-select-button{min-height:44px;touch-action:manipulation}
 
 .mobile-game-dock a,
 .mobile-game-dock button{
