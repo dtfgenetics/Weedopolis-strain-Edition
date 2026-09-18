@@ -70,7 +70,10 @@ const highChance01 = await reconstructWebp({
   expectedSha256: HIGH_CHANCE_01_SHA256
 });
 
-// Do not publish source transport chunks to the public site.
+// Do not publish test-only browser code or source transport chunks to the public site.
+await rm(join(outputRoot, 'js/weedopolis-tests.js'), { force: true });
+
+
 await rm(join(outputRoot, 'assets/board/v1-master-b64'), { recursive: true, force: true });
 await rm(join(outputRoot, 'assets/board/source-b64'), { recursive: true, force: true });
 await rm(join(outputRoot, 'assets/property-cards/source-b64'), { recursive: true, force: true });
