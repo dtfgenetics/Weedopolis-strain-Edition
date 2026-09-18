@@ -7,6 +7,7 @@ const solvency = fs.readFileSync('digital/weedopolis-web/js/weedopolis-solvency.
 
 assert(!html.includes('weedopolis-tests.js'), 'production HTML must not load the browser test harness');
 assert(!html.includes('runWeedopolisTests'), 'production HTML must not expose test-only controls or hooks');
+assert(!fs.existsSync('dist/weedopolis/js/weedopolis-tests.js'), 'production package must not ship the browser test harness');
 
 for (const required of [
   'js/weedopolis-edition.js',
