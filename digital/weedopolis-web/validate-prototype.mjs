@@ -5,10 +5,11 @@ import vm from 'node:vm';
 const root = new URL('./', import.meta.url);
 const read = (name) => readFile(new URL(name, root), 'utf8');
 
-const [html, css, tradingCss, editionSource, engineSource, tradingSource, uiSource, tradeUiSource, testsSource] = await Promise.all([
+const [html, css, tradingCss, productionInteractionsCss, editionSource, engineSource, tradingSource, uiSource, tradeUiSource, testsSource] = await Promise.all([
   read('index.html'),
   read('styles.css'),
   read('trading.css'),
+  read('production-interactions.css'),
   read('js/weedopolis-edition.js'),
   read('js/weedopolis-engine.js'),
   read('js/weedopolis-trading.js'),
@@ -118,6 +119,9 @@ assert.match(tradeUiSource, /Game\.tradeEligibility\b/, 'Trade Desk must use eng
 assert.match(tradeUiSource, /Game\.trade\b/, 'Trade Desk must execute trades through the engine');
 assert.match(tradeUiSource, /Both players reviewed and approve this trade/, 'Local trades require explicit bilateral approval');
 assert.match(tradeUiSource, /aria-live/, 'Trade failures must be announced accessibly');
+assert.match(uiSource, /deck-card-kicker/, 'Approved deck fallback must expose a physical-card heading');
+assert.match(uiSource, /deck-card-number/, 'Approved deck fallback must expose the approved card number when available');
+assert.match(uiSource, /deckCard\.dataset\.deck = deckSlug/, 'Approved deck fallback must expose deck identity for themed presentation');
 
 function firstOwnable(excludedIndex = null) {
   return game.state.spaces.find((space) => game.isOwnable(space) && space.index !== excludedIndex);
@@ -228,6 +232,12 @@ for (const selector of ['.trade-desk', '.trade-grid', '.trade-consent', '.trade-
 }
 assert.match(tradingCss, /min-height:\s*44px/, 'Trade controls must preserve touch target sizing');
 assert.match(tradingCss, /prefers-reduced-motion/, 'Trade layer must preserve reduced-motion behavior');
+assert.match(productionInteractionsCss, /production piece readability v1/, 'Production piece readability layer must remain active');
+assert.match(productionInteractionsCss, /pending-card\.deck-card\[data-deck="high-chance"\]/, 'High Chance fallback must render as a themed game card');
+assert.match(productionInteractionsCss, /pending-card\.deck-card\[data-deck="community-stash"\]/, 'Community Stash fallback must render as a themed game card');
+assert.match(productionInteractionsCss, /board-frame \.player-token/, 'Board tokens must retain production readability overrides');
+assert.match(productionInteractionsCss, /board-frame \.upgrade-badge/, 'Grow Tent and Dispensary badges must retain production readability overrides');
+assert.match(productionInteractionsCss, /forced-colors/, 'Production piece layer must preserve forced-colors support');
 assert.doesNotMatch(css, /Minimal stylesheet placeholder/i);
 assert.doesNotMatch(uiSource, /Minimal Weedopolis UI placeholder/i);
 
