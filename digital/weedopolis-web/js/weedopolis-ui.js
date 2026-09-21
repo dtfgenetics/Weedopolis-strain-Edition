@@ -251,7 +251,20 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     if (state.pending && state.pending.card) {
-      turn.appendChild(makeElement('p', 'pending-card', state.pending.card.deck + ': ' + state.pending.card.text));
+      const drawnCard = state.pending.card;
+      const deckCard = makeElement('article', 'pending-card deck-card');
+      const deckSlug = String(drawnCard.deck || 'card').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      deckCard.dataset.deck = deckSlug;
+      deckCard.setAttribute('aria-label', drawnCard.deck + ' card: ' + drawnCard.text);
+
+      const deckHeader = makeElement('header', 'deck-card-header');
+      deckHeader.appendChild(makeElement('span', 'deck-card-kicker', drawnCard.deck));
+      if (Number.isInteger(drawnCard.approvedNumber)) {
+        deckHeader.appendChild(makeElement('span', 'deck-card-number', '#' + drawnCard.approvedNumber));
+      }
+      deckCard.appendChild(deckHeader);
+      deckCard.appendChild(makeElement('p', 'deck-card-copy', drawnCard.text));
+      turn.appendChild(deckCard);
     }
 
     const actions = makeElement('div', 'action-row');
