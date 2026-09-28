@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import vm from 'node:vm';
 
 const root = 'digital/weedopolis-web';
 const html = fs.readFileSync(`${root}/index.html`, 'utf8');
@@ -82,6 +83,43 @@ assert(
   'legacy double-award Start Session branch must stay removed'
 );
 assert(edition.includes('WEEDOPOLIS_EDITION'), 'edition data must be exposed to the browser runtime');
+
+{
+  const window = {
+    WEEDOPOLIS_EDITION: {
+      startMoney: 1500,
+      spaces: [],
+      decks: { highChance: [], communityStash: [] },
+      passStartBonus: 200,
+      trimJailIndex: 10,
+      categoryRent: [25, 50, 100, 200],
+      utilityMultipliers: { one: 4, both: 10 }
+    },
+    localStorage: { getItem: () => null, setItem: () => {}, removeItem: () => {} }
+  };
+  vm.runInNewContext(engine, { window, localStorage: window.localStorage, console, Date, Math, JSON }, { filename: 'weedopolis-engine.js' });
+  const game = window.WeedopolisGame;
+  const player = { id: 0, name: 'Player 1', money: 1000, position: 5, bankrupt: false };
+  const owner = { id: 1, name: 'Player 2', money: 1000, position: 0, bankrupt: false };
+  const spaces = Array.from({ length: 40 }, (_, index) => ({ index, name: `Space ${index}`, type: 'corner' }));
+  spaces[5] = { index: 5, name: 'Indica', type: 'category', owner: 0, mortgaged: false };
+  spaces[6] = { index: 6, name: 'Sativa', type: 'category', owner: 1, mortgaged: false };
+  game.state = {
+    players: [player, owner],
+    spaces,
+    turn: 0,
+    phase: 'action',
+    pending: { type: 'forcedRent', rentMultiplier: 2 },
+    lastDiceTotal: 7,
+    log: []
+  };
+  game.resolveLanding(player);
+  assert.equal(game.state.pending, null, 'forced-rent multiplier must clear when the destination is self-owned');
+  player.position = 6;
+  game.resolveLanding(player);
+  assert.equal(player.money, 975, 'later ordinary category rent must not inherit a stale forced-rent multiplier');
+  assert.equal(owner.money, 1025, 'later ordinary category rent must use the normal one-category rent');
+}
 
 const lockedColors = {
   brown: '#683417',
