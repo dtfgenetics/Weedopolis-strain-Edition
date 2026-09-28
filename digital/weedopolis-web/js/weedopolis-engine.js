@@ -255,6 +255,7 @@
           this.state.phase = 'end';
         } else {
           this.log(`${player.name} owns ${space.name}.`);
+          if (this.state.pending?.type === 'forcedRent') this.state.pending = null;
           this.state.phase = 'end';
         }
       } else {
