@@ -3,6 +3,18 @@
   const DATA = window.WEEDOPOLIS_EDITION;
   const STORAGE_KEY = 'weedopolis.strain.city.local.v1';
 
+  function storageGet(key) {
+    try { return window.localStorage?.getItem(key) ?? null; } catch { return null; }
+  }
+
+  function storageSet(key, value) {
+    try { window.localStorage?.setItem(key, value); return true; } catch { return false; }
+  }
+
+  function storageRemove(key) {
+    try { window.localStorage?.removeItem(key); return true; } catch { return false; }
+  }
+
   function deepClone(value) {
     return JSON.parse(JSON.stringify(value));
   }
@@ -80,7 +92,7 @@
     },
 
     load() {
-      const raw = localStorage.getItem(STORAGE_KEY);
+      const raw = storageGet(STORAGE_KEY);
       if (!raw) return false;
       try {
         this.state = JSON.parse(raw);
@@ -94,11 +106,11 @@
     },
 
     save() {
-      if (this.state) localStorage.setItem(STORAGE_KEY, JSON.stringify(this.state));
+      if (this.state) storageSet(STORAGE_KEY, JSON.stringify(this.state));
     },
 
     clearSave() {
-      localStorage.removeItem(STORAGE_KEY);
+      storageRemove(STORAGE_KEY);
     },
 
     currentPlayer() {
