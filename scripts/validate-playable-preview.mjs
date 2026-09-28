@@ -73,6 +73,14 @@ for (const required of [
 for (const required of ['rollDice', 'buy', 'auction', 'mortgage', 'upgrade']) {
   assert(engine.toLowerCase().includes(required.toLowerCase()), `missing game engine behavior: ${required}`);
 }
+assert(
+  engine.includes('if (passedStart || landedStart)'),
+  'browser movement must award Start Session exactly once when passing or landing on Start'
+);
+assert(
+  !engine.includes("if (collectIfPass && index <= old && index !== old) {\n        player.money += DATA.passStartBonus"),
+  'legacy double-award Start Session branch must stay removed'
+);
 assert(edition.includes('WEEDOPOLIS_EDITION'), 'edition data must be exposed to the browser runtime');
 
 const lockedColors = {
