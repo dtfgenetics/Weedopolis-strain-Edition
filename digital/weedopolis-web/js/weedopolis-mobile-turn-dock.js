@@ -23,6 +23,14 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  function phaseActionLabel(state) {
+    if (!state) return 'Turn Actions';
+    if (state.phase === 'action' && state.pending?.type === 'buy') return 'Buy or Auction';
+    if (state.phase === 'auction') return 'Resolve Auction';
+    if (state.phase === 'end') return 'End Turn';
+    return 'Turn Actions';
+  }
+
   function syncMobilePrimaryAction(state) {
     const player = state && state.players ? state.players[state.turn] : null;
     const canRoll = Boolean(state && state.phase === 'roll' && player && !player.bankrupt);
@@ -40,10 +48,11 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     if (needsTurnAction) {
-      mobilePrimaryButton.textContent = 'Turn Actions';
+      const label = phaseActionLabel(state);
+      mobilePrimaryButton.textContent = label;
       mobilePrimaryButton.disabled = false;
       mobilePrimaryButton.setAttribute('aria-disabled', 'false');
-      mobilePrimaryButton.setAttribute('aria-label', 'Jump to the current required turn actions');
+      mobilePrimaryButton.setAttribute('aria-label', `${label}. Jump to the current required turn actions`);
       return;
     }
 
