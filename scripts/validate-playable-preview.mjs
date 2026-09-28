@@ -97,7 +97,7 @@ assert(edition.includes('WEEDOPOLIS_EDITION'), 'edition data must be exposed to 
     },
     localStorage: { getItem: () => null, setItem: () => {}, removeItem: () => {} }
   };
-  vm.runInNewContext(engine, { window, console, Date, Math, JSON }, { filename: 'weedopolis-engine.js' });
+  vm.runInNewContext(engine, { window, localStorage: window.localStorage, console, Date, Math, JSON }, { filename: 'weedopolis-engine.js' });
   const game = window.WeedopolisGame;
   const player = { id: 0, name: 'Player 1', money: 1000, position: 5, bankrupt: false };
   const owner = { id: 1, name: 'Player 2', money: 1000, position: 0, bankrupt: false };
