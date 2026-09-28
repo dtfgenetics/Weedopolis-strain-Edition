@@ -195,13 +195,13 @@
 
     moveTo(player, index, collectIfPass = true) {
       const old = player.position;
-      if (collectIfPass && index <= old && index !== old) {
+      const passedStart = collectIfPass && index <= old && index !== old;
+      const landedStart = index === 0;
+      if (passedStart || landedStart) {
         player.money += DATA.passStartBonus;
-        this.log(`${player.name} passed Start Session and collected 200 Bud Bucks.`);
-      }
-      if (index === 0) {
-        player.money += DATA.passStartBonus;
-        this.log(`${player.name} reached Start Session and collected 200 Bud Bucks.`);
+        this.log(
+          `${player.name} ${landedStart ? 'reached' : 'passed'} Start Session and collected ${DATA.passStartBonus} Bud Bucks.`
+        );
       }
       player.position = index;
       this.resolveLanding(player);
