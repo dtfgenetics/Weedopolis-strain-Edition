@@ -19,7 +19,10 @@ for (const required of [
   "state.phase === 'roll'",
   "state.phase !== 'finished'",
   "mobilePrimaryButton.textContent = 'Roll Dice'",
-  "mobilePrimaryButton.textContent = 'Turn Actions'",
+  "function phaseActionLabel(state)",
+  "return 'Buy or Auction'",
+  "return 'Resolve Auction'",
+  "return 'End Turn'",
   "mobilePrimaryButton.textContent = state?.phase === 'finished' ? 'Game Over' : 'Roll Dice'",
   "mobilePrimaryButton.dataset.mobileAction",
   "turnSection.scrollIntoView",
@@ -36,4 +39,4 @@ assert(listenerBody, 'mobile primary action click listener must exist');
 assert(listenerBody.includes("state.phase === 'roll'"), 'mobile bridge must not duplicate the core roll action');
 assert(listenerBody.includes('scrollToTurnActions()'), 'non-roll phases must route the player to required Turn actions');
 
-console.log('Weedopolis mobile turn dock validation passed: roll remains authoritative; action/auction/end phases route to Turn controls.');
+console.log('Weedopolis mobile turn dock validation passed: roll remains authoritative; action/auction/end phases expose phase-specific mobile actions.');
