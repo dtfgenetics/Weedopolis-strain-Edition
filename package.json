@@ -14,6 +14,7 @@
     "build:preview": "node scripts/build-production-preview.mjs",
     "check:online": "node scripts/validate-online-multiplayer.mjs",
     "check:wordpress": "node scripts/validate-wordpress-multiplayer.mjs",
-    "validate": "npm run validate:data && npm run validate:engine && npm run validate:ui && npm run validate:controller && npm run validate:decks && npm run validate:production"
+    "validate": "npm run validate:data && npm run validate:engine && npm run validate:regressions && npm run validate:ui && npm run validate:controller && npm run validate:decks && npm run validate:production",
+    "validate:regressions": "node scripts/validate-gameplay-regressions.mjs"
   }
 }
