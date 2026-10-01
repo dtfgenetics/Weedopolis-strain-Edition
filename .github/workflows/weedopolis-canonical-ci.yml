@@ -12,6 +12,7 @@ on:
       - "scripts/**"
       - "wordpress-plugin/weedopolis-multiplayer/**"
       - "package.json"
+      - "dtf-agent-contract.json"
       - ".github/workflows/weedopolis-canonical-ci.yml"
   pull_request:
     branches:
@@ -44,6 +45,9 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: 22
+
+      - name: Validate DTF agent contract
+        run: node -e "const c=require('./dtf-agent-contract.json'); if(c.schemaVersion!==1||c.repository!=='dtfgenetics/Weedopolis-strain-Edition'||!c.verificationProfiles?.default) process.exit(1)"
 
       - name: Validate canonical game data and engine
         run: npm run validate
