@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "repository": "dtfgenetics/Weedopolis-strain-Edition",
+  "controlRepository": "dtfgenetics/Thc",
+  "defaultBranch": "main",
+  "canonicalDomains": [
+    "Weedopolis game",
+    "Weedopolis board data",
+    "Weedopolis rules and decks",
+    "Weedopolis digital implementation"
+  ],
+  "sourceRoots": [
+    "data/",
+    "docs/",
+    "scripts/",
+    "src/",
+    "public/",
+    "assets/",
+    "package.json",
+    "AGENTS.md"
+  ],
+  "protectedPaths": [
+    ".github/workflows/**",
+    ".env*"
+  ],
+  "verificationProfiles": {
+    "default": {
+      "commands": [
+        "npm run validate",
+        "npm run check:preview"
+      ],
+      "ciAuthoritative": true
+    },
+    "gameplay": {
+      "commands": [
+        "npm run validate:data",
+        "npm run validate:engine",
+        "npm run validate:regressions",
+        "npm run validate:decks"
+      ],
+      "ciAuthoritative": true
+    },
+    "release": {
+      "commands": [
+        "npm run validate",
+        "npm run check:preview",
+        "npm run build:preview"
+      ],
+      "ciAuthoritative": true
+    }
+  },
+  "production": {
+    "directMutation": false,
+    "integrationOwner": "dtfgenetics/Thc",
+    "route": "/games/weedopolis/",
+    "notes": "Canonical board/rules work originates here; DTFSeeds public integration and live-route verification are controlled centrally."
+  }
+}
