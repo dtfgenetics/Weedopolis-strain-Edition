@@ -46,6 +46,8 @@ input {
 }
 
 button {
+  min-height: 44px;
+  touch-action: manipulation;
   border: 1px solid rgba(229, 208, 142, 0.48);
   border-radius: 0.75rem;
   padding: 0.72rem 0.95rem;
@@ -187,6 +189,7 @@ button.danger {
 
 input {
   width: 100%;
+  min-height: 44px;
   border: 1px solid rgba(229, 208, 142, 0.28);
   border-radius: 0.7rem;
   padding: 0.75rem;
@@ -525,6 +528,22 @@ input {
 
   .layout {
     padding: 0.65rem;
+  }
+
+  .header-actions,
+  .action-row,
+  .manage-actions {
+    width: 100%;
+  }
+
+  .header-actions > button,
+  .action-row > button,
+  .manage-actions > button {
+    flex: 1 1 10rem;
+  }
+
+  .player-name-grid {
+    grid-template-columns: 1fr;
   }
 }
 
