@@ -2,6 +2,7 @@
 (function () {
   const DATA = window.WEEDOPOLIS_EDITION;
   const STORAGE_KEY = 'weedopolis.strain.city.local.v1';
+  const SAVE_VERSION = 1;
 
   function storageGet(key) {
     try { return window.localStorage?.getItem(key) ?? null; } catch { return null; }
@@ -95,8 +96,16 @@
       const raw = storageGet(STORAGE_KEY);
       if (!raw) return false;
       try {
-        this.state = JSON.parse(raw);
+        const parsed = JSON.parse(raw);
+        const envelope = parsed && parsed.version === SAVE_VERSION && parsed.state
+          ? parsed
+          : { version: SAVE_VERSION, state: parsed };
+        if (!envelope.state || typeof envelope.state !== 'object' || !Array.isArray(envelope.state.players) || !Array.isArray(envelope.state.spaces)) {
+          return false;
+        }
+        this.state = envelope.state;
         this.log('Saved game loaded.');
+        this.save();
         this.emit();
         return true;
       } catch (err) {
@@ -106,7 +115,13 @@
     },
 
     save() {
-      if (this.state) storageSet(STORAGE_KEY, JSON.stringify(this.state));
+      if (this.state) {
+        storageSet(STORAGE_KEY, JSON.stringify({
+          version: SAVE_VERSION,
+          savedAt: new Date().toISOString(),
+          state: this.state
+        }));
+      }
     },
 
     clearSave() {
@@ -502,5 +517,6 @@
     }
   };
 
+  Engine.SAVE_VERSION = SAVE_VERSION;
   window.WeedopolisGame = Engine;
 })();
